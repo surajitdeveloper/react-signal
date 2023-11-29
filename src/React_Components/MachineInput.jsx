@@ -26,7 +26,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-const Input = (props) => {
+const MachineInput = (props) => {
     
     const [inputValue, setInputValue] = React.useState(props.defaultInput)
    
@@ -147,4 +147,4 @@ const mapActionsToProps = {
     onSubmitValue: submitValue
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(Input);
+export default connect(mapStateToProps, mapActionsToProps)(MachineInput);

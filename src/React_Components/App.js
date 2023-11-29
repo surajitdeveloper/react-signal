@@ -1,6 +1,6 @@
 // React Imports
 import React, { Component } from 'react';
-import Input from './Input';
+import MachineInput from './MachineInput';
 import Output from './Output';
 
 // CSS Import (this style is used when testing React Components on Node.js instead of the Browser)
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Input defaultInput={''}/>
+        <MachineInput defaultInput={''}/>
         <Output />
       </div>
     );
