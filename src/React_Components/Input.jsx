@@ -50,7 +50,7 @@ const Input = (props) => {
     return (
 
 
-        <><ThemeProvider theme={defaultTheme}>
+        <>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -128,9 +128,7 @@ const Input = (props) => {
                         </Grid>
                     </Box>
                 </Box>
-                <Copyright sx={{ mt: 8, mb: 4 }} />
-            </Container>
-        </ThemeProvider></>
+            </Container></>
     );
 }
 
