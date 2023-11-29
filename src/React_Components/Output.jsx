@@ -25,9 +25,11 @@ const Output = (props) => {
         return input.split('').reverse().join('');
     }
     return (
-        <div>
+        <>
+        { props.submittedValue ? <div>
             Output: {reverseString(typeof props.submittedValue === 'string' ? props.submittedValue : '')}
-        </div>
+        </div> : ""}
+        </>
     );
 }
 
