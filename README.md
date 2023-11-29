@@ -4,7 +4,7 @@
 ## Quickstart
 
 0. Clone the project
-1. Install your dependencies with ```npm i --legacy-peer-deps```
+1. Install your dependencies with ```npm i```
 2. Run your application with ```npm start```
 3. Read index.js
 4. Read all the files in the 'Redux' folder
