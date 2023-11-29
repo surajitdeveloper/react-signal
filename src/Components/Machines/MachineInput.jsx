@@ -4,7 +4,7 @@ import * as React from 'react';
 import { signal, effect } from "@preact/signals-react";
 // Redux Imports
 import { connect } from 'react-redux';
-import { submitValue } from '../Redux/actions/submittedValueActions';
+import { submitValue } from '../../Redux/actions/submittedValueActions';
 
 
 import Avatar from '@mui/material/Avatar';

@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 // React Imports
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './React_Components/App';
+import App from './Components/App';
 
 // Redux Imports
 import { Provider } from 'react-redux';

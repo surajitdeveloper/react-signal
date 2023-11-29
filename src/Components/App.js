@@ -1,6 +1,6 @@
 // React Imports
 import React, { Component } from 'react';
-import MachineInput from './MachineInput';
+import MachineInput from './Machines/MachineInput';
 import Output from './Output';
 
 // CSS Import (this style is used when testing React Components on Node.js instead of the Browser)
