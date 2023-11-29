@@ -4,8 +4,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { submitValue } from '../Redux/actions/submittedValueActions';
 
-import Button from '@mui/material/Button';
-
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -48,8 +46,6 @@ const MachineInput = (props) => {
 
 
     return (
-
-
         <>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -61,15 +57,15 @@ const MachineInput = (props) => {
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Sign in
-                    </Typography>
+                    </Typography> */}
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <>
-                        <div>
+                        {/* <div>
                             <div className='form-section'>
                                 <form onSubmit={e => handleSubmit(e)} onReset={e => handleReset(e)}>
                                     <label>
@@ -81,9 +77,9 @@ const MachineInput = (props) => {
                                 </form>
                             </div>
                             <div className='todo'>
-                                {/* {JSON.stringify(props.todo)} */}
+                                {JSON.stringify(props.todo)}
                             </div>
-                        </div>
+                        </div> */}
                         </>
                         <TextField
                             margin="normal"
@@ -103,18 +99,18 @@ const MachineInput = (props) => {
                             type="password"
                             id="password"
                             autoComplete="current-password" />
-                        <FormControlLabel
+                        {/* <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me" />
+                            label="Remember me" /> */}
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Sign In
+                            Submit
                         </Button>
-                        <Grid container>
+                        {/* <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
                                     Forgot password?
@@ -125,7 +121,7 @@ const MachineInput = (props) => {
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
                     </Box>
                 </Box>
             </Container></>
