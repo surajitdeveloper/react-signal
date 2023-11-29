@@ -1,5 +1,7 @@
 // React Imports
 import * as React from 'react';
+
+import { signal, effect } from "@preact/signals-react";
 // Redux Imports
 import { connect } from 'react-redux';
 import { submitValue } from '../Redux/actions/submittedValueActions';
@@ -19,30 +21,41 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 const MachineInput = (props) => {
+
+    const machineType = signal('Machine type 1');
+    const subModule = signal('Sub Module 1');
+    const sites = signal('Sites 1');
+
+
     
     const [inputValue, setInputValue] = React.useState(props.defaultInput)
    
 
-    const handleChange = (event) => {
-        setInputValue(event.target.value)
-    }
+    // const handleChange = (event) => {
+    //     setInputValue(event.target.value)
+    // }
 
     const handleSubmit = async (event) => {
         props.onSubmitValue(inputValue);
         event.preventDefault();
     }
 
-    const handleReset = (event) => {
-        setInputValue('')
-        props.onSubmitValue(inputValue);
-        event.preventDefault();
-    }
+    // const handleReset = (event) => {
+    //     setInputValue('')
+    //     props.onSubmitValue(inputValue);
+    //     event.preventDefault();
+    // }
 
 
     return (
@@ -59,10 +72,10 @@ const MachineInput = (props) => {
                 >
                     {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
-                    </Avatar>
+                    </Avatar> */}
                     <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography> */}
+                        Machine Details
+                    </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <>
                         {/* <div>
@@ -85,20 +98,62 @@ const MachineInput = (props) => {
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
+                            id="machinename"
+                            label="Machine Name"
+                            name="machineName"
                             autoComplete="email"
                             autoFocus />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password" />
+                        
+                            <InputLabel id="demo-simple-select-label">Machine Type</InputLabel>
+                            <Select
+                                fullWidth
+                                required
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={machineType}
+                                label="Age"
+                                onChange={  e=>{ machineType = e.target.value} }
+                            >
+                                <MenuItem value={'Machine type 1'}>Machine type 1</MenuItem>
+                                <MenuItem value={'Machine type 2'}>Machine type 2</MenuItem>
+                                <MenuItem value={'Machine type 3'}>Machine type 3</MenuItem>
+                            </Select>
+
+
+                            <InputLabel id="demo-simple-select-label">Sub Module</InputLabel>
+                            <Select
+                                fullWidth
+                                required
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={subModule}
+                                label="Age"
+                                onChange={ e=>{ subModule = e.target.value} }
+                            >
+                                <MenuItem value={'Sub Module 1'}>Sub Module 1</MenuItem>
+                                <MenuItem value={'Sub Module 2'}>Sub Module 2</MenuItem>
+                                <MenuItem value={'Sub Module 3'}>Sub Module 3</MenuItem>
+                            </Select>
+
+
+                            <InputLabel id="demo-simple-select-label">Site</InputLabel>
+                            <Select
+                                fullWidth
+                                required
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={sites}
+                                label="Age"
+                                onChange={e=>{ sites = e.target.value}}
+                            >
+                                <MenuItem value={'Sites 1'}>Site 1</MenuItem>
+                                <MenuItem value={'Sites 2'}>Site 2</MenuItem>
+                                <MenuItem value={'Sites 3'}>Site 3</MenuItem>
+                            </Select>
+
+                            
+
+
                         {/* <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me" /> */}
@@ -108,7 +163,7 @@ const MachineInput = (props) => {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Submit
+                            Submit and Enter Customer Details
                         </Button>
                         {/* <Grid container>
                             <Grid item xs>
