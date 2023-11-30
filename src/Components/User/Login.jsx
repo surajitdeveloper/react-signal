@@ -19,6 +19,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { useNavigate } from "react-router-dom";
 
 
 const states = signal({
@@ -28,16 +29,23 @@ const states = signal({
 
 
 const Login = (props) => {
+    const navigate = useNavigate();
     const updateValue = (input, value) => {
-
         states.value = { ...states.value, [input]: value };
-       
     }
 
     const doLogin = async (e) =>{
         e.preventDefault();
-        props.setUserToken("abcd1234");
-        console.log(props.setUserToken)
+        // api call
+        const {username, password} = states.value
+        if(username === 'admin' && password === 'admin'){
+            props.setUserToken("abcd1234"); // set value to reducer
+            navigate("/machine")
+        } 
+        else
+        {
+            alert("Invalid credentials")
+        }
         // login
     }
 
@@ -112,11 +120,11 @@ const Login = (props) => {
     );
 }
 
-const mapStateToProps = (state, props) => {
-    console.log("state --->", state)
-    console.log("props --->", props)
+const mapStateToProps = (state) => {
+    // console.log("state --->", state)
+    // console.log("props --->", props)
     return {
-        setUserToken: state.setUserToken
+        ...state
     };
 };
 

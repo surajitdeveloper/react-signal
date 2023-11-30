@@ -4,9 +4,8 @@ import * as React from 'react';
 import { signal, effect } from "@preact/signals-react";
 // Redux Imports
 import { connect } from 'react-redux';
-import { submitValue } from '../../Redux/actions/submittedValueActions';
 
-
+import { useNavigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -34,12 +33,18 @@ const states = signal({
 
 
 const MachineInput = (props) => {
+    const navigate = useNavigate();
+    React.useEffect(()=>{
+        if(!props.token){
+            navigate("/")
+        }
+    },[props]);
+
 
    
     // effect(() => console.log(states.value));
     // console.log(props)
     
-    const [inputValue, setInputValue] = React.useState(props.defaultInput)
 
     const updateValue = (input, value) => {
 
@@ -49,8 +54,9 @@ const MachineInput = (props) => {
    
 
     const handleSubmit = async (event) => {
-        props.onSubmitValue(inputValue);
         event.preventDefault();
+
+
     }
 
 
@@ -145,17 +151,16 @@ const MachineInput = (props) => {
 
 
 const mapStateToProps = (state, props) => {
-    // console.log("state --->", state)
+    // console.log("machine state --->", state)
     // console.log("props --->", props)
     return {
-        defaultInput: props.defaultInput + ' ' + state.submittedValue,
-        todo: state.setWeather
+        token: state.setUserToken
     };
 };
 
 // onSubmitValue is used to avoid naming conflicts with submitValue
 const mapActionsToProps = {
-    onSubmitValue: submitValue
+    
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(MachineInput);
