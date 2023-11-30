@@ -4,7 +4,7 @@ import * as React from 'react';
 import { signal } from "@preact/signals-react";
 // Redux Imports
 import { connect } from 'react-redux';
-import { userToken } from '../../Redux/actions/userActions';
+import { userAction } from '../../Redux/actions/userActions';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -37,6 +37,7 @@ const Login = (props) => {
     const doLogin = async (e) =>{
         e.preventDefault();
         props.setUserToken("abcd1234");
+        console.log(props.setUserToken)
         // login
     }
 
@@ -115,14 +116,13 @@ const mapStateToProps = (state, props) => {
     console.log("state --->", state)
     console.log("props --->", props)
     return {
-        defaultInput: props.defaultInput + ' ' + state.submittedValue,
-        todo: state.setWeather
+        setUserToken: state.setUserToken
     };
 };
 
 
 const mapActionsToProps = {
-    setUserToken: userToken
+    setUserToken: userAction
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Login);

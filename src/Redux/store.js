@@ -13,8 +13,8 @@ export const store = createStore(
     allReducers,
     {
         submittedValue: '',
-        setUserToken: '',
-        setWeather: ''
+        setWeather: '',
+        setUserToken: ''
     },
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
