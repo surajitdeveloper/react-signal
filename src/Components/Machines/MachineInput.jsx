@@ -25,35 +25,28 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+
+const states = signal({
+    machineType: 'Machine type 1',
+    subModule: 'Sub Module 1',
+    sites: 'Sites 1'
+});
+
+
 const MachineInput = (props) => {
 
-    const machineType = signal('Machine type 1');
-    const subModule = signal('Sub Module 1');
-    const sites = signal('Sites 1');
-
-
+   
+    // effect(() => console.log(states.value));
+    
 
 
     
     const [inputValue, setInputValue] = React.useState(props.defaultInput)
 
     const updateValue = (input, value) => {
-        console.log(input)
-        console.log(value)
-        switch(input){
-            case 'machineType':
-                machineType.value = value
-                console.log(machineType)
-                break;
-            case 'subModule':
-                subModule.value = value
-                break
-            case 'sites':
-                sites.value = value;
-                break;
-            default:
-                break;
-        }
+
+        states.value = { ...states, [input]: value };
+       
     }
    
 
@@ -89,15 +82,16 @@ const MachineInput = (props) => {
                             label="Machine Name"
                             name="machineName"
                             autoComplete="email"
+                            onInput={e=>updateValue('machineType', e.target.value)}
                             autoFocus />
                         
-                            <InputLabel id="demo-simple-select-label">Machine Type -- {machineType.value}</InputLabel>
+                            <InputLabel id="machine-select-label">Machine Type</InputLabel>
                             <Select
                                 fullWidth
                                 required
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={machineType.value}
+                                labelId="machine-select-label"
+                                id="machine-select"
+                                value={states.value.machineType}
                                 label="Machine Type"
                                 onChange={  e=>{ updateValue('machineType', e.target.value)} }
                             >
@@ -111,11 +105,11 @@ const MachineInput = (props) => {
                             <Select
                                 fullWidth
                                 required
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
+                                labelId="machine-submodule-label"
+                                id="machine-submodule"
                                 value={subModule}
                                 label="Sub Module"
-                                onChange={ e=>{ subModule = e.target.value} }
+                                onChange={ e=>{ updateValue('subModule', e.target.value) } }
                             >
                                 <MenuItem value={'Sub Module 1'}>Sub Module 1</MenuItem>
                                 <MenuItem value={'Sub Module 2'}>Sub Module 2</MenuItem>
