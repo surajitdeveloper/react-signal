@@ -37,25 +37,21 @@ const MachineInput = (props) => {
 
    
     // effect(() => console.log(states.value));
-    
-
-
+    // console.log(props)
     
     const [inputValue, setInputValue] = React.useState(props.defaultInput)
 
     const updateValue = (input, value) => {
 
-        states.value = { ...states, [input]: value };
+        states.value = { ...states.value, [input]: value };
        
     }
    
-
 
     const handleSubmit = async (event) => {
         props.onSubmitValue(inputValue);
         event.preventDefault();
     }
-
 
 
     return (
@@ -107,7 +103,7 @@ const MachineInput = (props) => {
                                 required
                                 labelId="machine-submodule-label"
                                 id="machine-submodule"
-                                value={subModule}
+                                value={states.value.subModule}
                                 label="Sub Module"
                                 onChange={ e=>{ updateValue('subModule', e.target.value) } }
                             >
@@ -123,9 +119,9 @@ const MachineInput = (props) => {
                                 required
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                value={sites}
+                                value={states.value.sites}
                                 label="Site"
-                                onChange={e=>{ sites = e.target.value}}
+                                onChange={e=>{ updateValue('sites', e.target.value) }}
                             >
                                 <MenuItem value={'Sites 1'}>Site 1</MenuItem>
                                 <MenuItem value={'Sites 2'}>Site 2</MenuItem>
