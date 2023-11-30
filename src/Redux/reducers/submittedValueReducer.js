@@ -1,5 +1,4 @@
-import { SUBMIT_VALUE } from '../actions/submittedValueActions';
-import { SET_WEATHER } from "../actions/setWeatherActions";
+import { SET_WEATHER, SUBMIT_VALUE } from "../constant";
 export default function submittedValueReducer(state = null, action) {
 
     // console.log("state --->", state)

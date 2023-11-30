@@ -1,7 +1,4 @@
-
-export const SUBMIT_VALUE = 'SUBMIT_VALUE';
-
-
+import { SUBMIT_VALUE } from "../constant"
 export const submitValue =  (input) => {
     return {
         type: SUBMIT_VALUE,

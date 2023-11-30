@@ -1,5 +1,5 @@
 
-import { SET_WEATHER } from "../actions/setWeatherActions";
+import { SET_WEATHER } from "../constant";
 export default function setWeatherReducer(state = null, action) {
     // console.log("state --->", state)
     // console.log("action --->", action)
