@@ -44,20 +44,12 @@ const MachineInput = (props) => {
     const [inputValue, setInputValue] = React.useState(props.defaultInput)
    
 
-    // const handleChange = (event) => {
-    //     setInputValue(event.target.value)
-    // }
 
     const handleSubmit = async (event) => {
         props.onSubmitValue(inputValue);
         event.preventDefault();
     }
 
-    // const handleReset = (event) => {
-    //     setInputValue('')
-    //     props.onSubmitValue(inputValue);
-    //     event.preventDefault();
-    // }
 
 
     return (
@@ -79,23 +71,6 @@ const MachineInput = (props) => {
                         Machine Details
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                        <>
-                        {/* <div>
-                            <div className='form-section'>
-                                <form onSubmit={e => handleSubmit(e)} onReset={e => handleReset(e)}>
-                                    <label>
-                                        Input: <input type="text" value={inputValue} onChange={e => handleChange(e)} />
-                                    </label>
-                                    <input type="submit" value="Submit" />
-                                    <input type="reset" value="Clear" />
-                                    <Button variant="contained">Hello world</Button>
-                                </form>
-                            </div>
-                            <div className='todo'>
-                                {JSON.stringify(props.todo)}
-                            </div>
-                        </div> */}
-                        </>
                         <TextField
                             margin="normal"
                             required
@@ -153,12 +128,6 @@ const MachineInput = (props) => {
                                 <MenuItem value={'Sites 3'}>Site 3</MenuItem>
                             </Select>
 
-                            
-
-
-                        {/* <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me" /> */}
                         <Button
                             type="submit"
                             fullWidth
@@ -167,18 +136,7 @@ const MachineInput = (props) => {
                         >
                             Submit and Enter Customer Details
                         </Button>
-                        {/* <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid> */}
+                        
                     </Box>
                 </Box>
             </Container></>
