@@ -1,8 +1,7 @@
 import { SET_WEATHER, SUBMIT_VALUE } from "../constant";
-export default function submittedValueReducer(state = null, action) {
-
-    // console.log("state --->", state)
-    // console.log("action --->", action)
+export const submittedValueReducer = (state = null, action) => {
+    console.log("submit reducer state --->", state)
+    console.log("submit reducer action --->", action)
 
     switch (action.type) {
         case SUBMIT_VALUE:
