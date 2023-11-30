@@ -18,7 +18,7 @@ import Container from '@mui/material/Container';
 
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
