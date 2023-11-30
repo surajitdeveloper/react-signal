@@ -38,7 +38,7 @@ const MachineInput = (props) => {
         if(!props.token){
             navigate("/")
         }
-    },[props]);
+    },[props, navigate]);
 
 
    
