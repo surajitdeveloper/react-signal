@@ -7,23 +7,17 @@ import { connect } from 'react-redux';
 import { submitValue } from '../../Redux/actions/submittedValueActions';
 
 
-// import Avatar from '@mui/material/Avatar';
+
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
-// import Grid from '@mui/material/Grid';
+
 import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import '@fontsource/roboto/300.css';
@@ -37,11 +31,30 @@ const MachineInput = (props) => {
     const subModule = signal('Sub Module 1');
     const sites = signal('Sites 1');
 
-    console.log(machineType)
+
 
 
     
     const [inputValue, setInputValue] = React.useState(props.defaultInput)
+
+    const updateValue = (input, value) => {
+        console.log(input)
+        console.log(value)
+        switch(input){
+            case 'machineType':
+                machineType.value = value
+                console.log(machineType)
+                break;
+            case 'subModule':
+                subModule.value = value
+                break
+            case 'sites':
+                sites.value = value;
+                break;
+            default:
+                break;
+        }
+    }
    
 
 
@@ -64,9 +77,6 @@ const MachineInput = (props) => {
                         alignItems: 'center',
                     }}
                 >
-                    {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar> */}
                     <Typography component="h1" variant="h5">
                         Machine Details
                     </Typography>
@@ -81,15 +91,15 @@ const MachineInput = (props) => {
                             autoComplete="email"
                             autoFocus />
                         
-                            <InputLabel id="demo-simple-select-label">Machine Type</InputLabel>
+                            <InputLabel id="demo-simple-select-label">Machine Type -- {machineType.value}</InputLabel>
                             <Select
                                 fullWidth
                                 required
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={machineType.value}
-                                label="Age"
-                                onChange={  e=>{ machineType.value = e.target.value} }
+                                label="Machine Type"
+                                onChange={  e=>{ updateValue('machineType', e.target.value)} }
                             >
                                 <MenuItem value={'Machine type 1'}>Machine type 1</MenuItem>
                                 <MenuItem value={'Machine type 2'}>Machine type 2</MenuItem>
@@ -104,7 +114,7 @@ const MachineInput = (props) => {
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={subModule}
-                                label="Age"
+                                label="Sub Module"
                                 onChange={ e=>{ subModule = e.target.value} }
                             >
                                 <MenuItem value={'Sub Module 1'}>Sub Module 1</MenuItem>
@@ -120,7 +130,7 @@ const MachineInput = (props) => {
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={sites}
-                                label="Age"
+                                label="Site"
                                 onChange={e=>{ sites = e.target.value}}
                             >
                                 <MenuItem value={'Sites 1'}>Site 1</MenuItem>
