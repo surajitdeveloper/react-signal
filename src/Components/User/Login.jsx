@@ -1,7 +1,7 @@
 // React Imports
 import * as React from 'react';
 
-import { signal, effect } from "@preact/signals-react";
+import { signal } from "@preact/signals-react";
 // Redux Imports
 import { connect } from 'react-redux';
 import { submitValue } from '../../Redux/actions/submittedValueActions';
@@ -22,14 +22,24 @@ import '@fontsource/roboto/700.css';
 
 
 const states = signal({
-    username: 'Machine type 1',
-    password: 'Sub Module 1',
-    sites: 'Sites 1'
+    username: '',
+    password: ''
 });
 
 
 const Login = (props) => {
+    const updateValue = (input, value) => {
 
+        states.value = { ...states.value, [input]: value };
+       
+    }
+
+    const doLogin = async (e) =>{
+        e.preventDefault();
+        alert("login")
+    }
+
+    
    
     return (
         <>
@@ -49,12 +59,14 @@ const Login = (props) => {
                     <Typography component="h1" variant="h5">
                         Login
                     </Typography>
-                    <Box component="form" noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={doLogin} noValidate={false} sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required
                             fullWidth
                             id="email"
+                            value={states.value.username}
+                            onInput={  e=>{ updateValue('username', e.target.value)} }
                             label="Email"
                             name="email"
                             autoFocus />
@@ -63,7 +75,9 @@ const Login = (props) => {
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
+                            id="password"
+                            value={states.value.password}
+                            onInput={  e=>{ updateValue('password', e.target.value)} }
                             label="Password"
                             name="password"
                             type='password'
