@@ -33,7 +33,7 @@ const states = signal({
 });
 
 
-const Login = () => {
+const Login = (props) => {
 
    
 
@@ -52,9 +52,9 @@ const Login = () => {
                     }}
                 >
                     <Typography component="h1" variant="h5">
-                        Machine Details
+                        Login
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required
@@ -63,7 +63,6 @@ const Login = () => {
                             label="Machine Name"
                             name="machineName"
                             autoComplete="email"
-                            onInput={e=>updateValue('machineType', e.target.value)}
                             autoFocus />
                         
                             <InputLabel id="machine-select-label">Machine Type</InputLabel>
@@ -74,7 +73,6 @@ const Login = () => {
                                 id="machine-select"
                                 value={states.value.machineType}
                                 label="Machine Type"
-                                onChange={  e=>{ updateValue('machineType', e.target.value)} }
                             >
                                 <MenuItem value={'Machine type 1'}>Machine type 1</MenuItem>
                                 <MenuItem value={'Machine type 2'}>Machine type 2</MenuItem>
@@ -90,7 +88,6 @@ const Login = () => {
                                 id="machine-submodule"
                                 value={states.value.subModule}
                                 label="Sub Module"
-                                onChange={ e=>{ updateValue('subModule', e.target.value) } }
                             >
                                 <MenuItem value={'Sub Module 1'}>Sub Module 1</MenuItem>
                                 <MenuItem value={'Sub Module 2'}>Sub Module 2</MenuItem>
@@ -106,7 +103,6 @@ const Login = () => {
                                 id="demo-simple-select"
                                 value={states.value.sites}
                                 label="Site"
-                                onChange={e=>{ updateValue('sites', e.target.value) }}
                             >
                                 <MenuItem value={'Sites 1'}>Site 1</MenuItem>
                                 <MenuItem value={'Sites 2'}>Site 2</MenuItem>
