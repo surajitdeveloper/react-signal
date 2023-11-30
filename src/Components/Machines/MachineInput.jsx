@@ -1,7 +1,7 @@
 // React Imports
 import * as React from 'react';
 
-import { signal, effect } from "@preact/signals-react";
+import { signal } from "@preact/signals-react";
 // Redux Imports
 import { connect } from 'react-redux';
 
