@@ -11,7 +11,12 @@ export const store = createStore(
   allReducers,
   {
     setUserToken: '',
-    machineData: {}
+    machineData: {
+      machineName: '',
+      sites: 0,
+      subModule: 0,
+      machineType: 0
+    }
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

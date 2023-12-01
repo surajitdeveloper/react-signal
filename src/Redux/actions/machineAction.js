@@ -4,7 +4,7 @@ export const machineAction = (machineData) => {
   return {
     type: SAVE_MACHINE_DETAILS,
     payload: {
-        machineData: machineData
+      machineData: machineData
     }
   }
 }
