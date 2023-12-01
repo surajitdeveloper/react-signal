@@ -1,8 +1,6 @@
 // React Imports
 import * as React from 'react'
 
-import { signal } from '@preact/signals-react'
-// Redux Imports
 import { connect } from 'react-redux'
 import { userAction } from '../../Redux/actions/userActions'
 import Link from '@mui/material/Link'
@@ -20,17 +18,11 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import { useNavigate } from 'react-router-dom'
+import { states, updateValue } from '../../Config/signalVariables'
 
-const states = signal({
-  username: '',
-  password: ''
-})
 
 const Login = (props) => {
   const navigate = useNavigate()
-  const updateValue = (input, value) => {
-    states.value = { ...states.value, [input]: value }
-  }
 
   const doLogin = async (e) => {
     e.preventDefault()

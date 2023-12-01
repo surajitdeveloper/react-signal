@@ -1,11 +1,9 @@
 // React Imports
 import * as React from 'react'
 
-import { signal } from '@preact/signals-react'
-// Redux Imports
 import { connect } from 'react-redux'
 
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -23,27 +21,14 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
-
-const states = signal({
-  machineType: 'Machine type 1',
-  subModule: 'Sub Module 1',
-  sites: 'Sites 1'
-})
+import { states, updateValue } from '../../Config/signalVariables'
+import Session from '../User/Session'
 
 const MachineInput = (props) => {
-  const navigate = useNavigate()
-  React.useEffect(() => {
-    if (!props.token) {
-      navigate('/')
-    }
-  }, [props, navigate])
+  // const navigate = useNavigate()
 
   // effect(() => console.log(states.value));
-  // console.log(props)
-
-  const updateValue = (input, value) => {
-    states.value = { ...states.value, [input]: value }
-  }
+  console.log(props)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -52,6 +37,7 @@ const MachineInput = (props) => {
   return (
     <>
       <Container component='main' maxWidth='xs'>
+        <Session />
         <CssBaseline />
         <Box
           sx={{
