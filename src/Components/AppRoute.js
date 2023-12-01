@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import MachineInput from './Machines/MachineInput'
 import Login from './User/Login'
-// import Output from './Output';
+import CustomerInput from './Customer/CustomerInput'
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -12,7 +12,7 @@ if (canUseDOM) {
   require('./App.css')
 }
 
-class App extends Component {
+class AppRoute extends Component {
   render() {
     return (
       <div className='App'>
@@ -20,15 +20,13 @@ class App extends Component {
           <Routes>
             <Route path='/' element={<Login />} />
             <Route path='/machine' element={<MachineInput />} />
+            <Route path='/customer' element={<CustomerInput />} />
             {/* <Route path="*" element={<Login />} /> */}
           </Routes>
         </Router>
-
-        {/* <MachineInput defaultInput={''}/>
-        <Output /> */}
       </div>
     )
   }
 }
 
-export default App
+export default AppRoute

@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker'
 // React Imports
 import React from 'react'
 // import ReactDOM from 'react-dom';
-import App from './Components/App'
+import AppRoute from './Components/AppRoute'
 import { createRoot } from 'react-dom/client'
 
 // Redux Imports
@@ -17,7 +17,7 @@ const root = createRoot(domNode)
 
 root.render(
   <Provider store={store}>
-    <App />
+    <AppRoute />
   </Provider>
 )
 
