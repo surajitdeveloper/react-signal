@@ -31,6 +31,7 @@ const MachineInput = (props) => {
   console.log(props)
 
   const handleSubmit = async (event) => {
+    console.log(states.value)
     event.preventDefault()
   }
 
@@ -59,7 +60,7 @@ const MachineInput = (props) => {
               label='Machine Name'
               name='machineName'
               autoComplete='email'
-              onInput={(e) => updateValue('machineType', e.target.value)}
+              onInput={(e) => updateValue('machineName', e.target.value)}
               autoFocus
             />
 
@@ -128,7 +129,8 @@ const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
   console.log('props --->', props)
   return {
-    token: state.setUserToken
+    token: state.setUserToken,
+    ...state
   }
 }
 

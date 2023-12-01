@@ -31,6 +31,7 @@ const CustomerInput = (props) => {
   console.log(props)
 
   const handleSubmit = async (event) => {
+    console.log(states.value)
     event.preventDefault()
   }
 
@@ -127,9 +128,7 @@ const CustomerInput = (props) => {
 const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
   console.log('props --->', props)
-  return {
-    token: state.setUserToken
-  }
+  return {}
 }
 
 // onSubmitValue is used to avoid naming conflicts with submitValue

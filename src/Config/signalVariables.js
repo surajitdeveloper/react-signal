@@ -5,7 +5,8 @@ export const states = signal({
   password: '',
   machineType: 'Machine type 1',
   subModule: 'Sub Module 1',
-  sites: 'Sites 1'
+  sites: 'Sites 1',
+  machineName: ''
 })
 
 export const updateValue = (input, value) => {
