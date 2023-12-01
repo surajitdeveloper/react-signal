@@ -14,13 +14,12 @@ const Session = (props) => {
 
 const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
-  console.log('props --->', props)
+  // console.log('props --->', props)
   return {
-    token: state.setUserToken
+    token: state.setUserToken, ...state, ...props
   }
 }
 
-// onSubmitValue is used to avoid naming conflicts with submitValue
 const mapActionsToProps = {}
 
 export default connect(mapStateToProps, mapActionsToProps)(Session)

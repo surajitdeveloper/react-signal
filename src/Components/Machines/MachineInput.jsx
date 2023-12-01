@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { connect } from 'react-redux'
 
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { machineAction } from '../../Redux/actions/machineAction'
 
@@ -27,20 +27,36 @@ import { states } from '../../Config/signalVariables'
 import Session from '../User/Session'
 
 const MachineInput = (props) => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   React.useEffect(() => {
-    console.log(states.value.sitesList)
-  })
+    const initMachineData = {
+      machineName: '',
+      sites: states.value.sitesList[0].siteId,
+      subModule: states.value.subModuleList[0].subModuleId,
+      machineType: states.value.machineTypeList[0].machineId
+    }
+    props.updateMachineData(initMachineData)
+  }, [states.value, props.updateMachineData])
 
-  // effect(() => console.log(states.value));
-  console.log('component props --->', props)
+  // console.log('component props --->', props)
 
-  // const setMachineData = (type, val) => {}
+  const setMachineData = (type, val) => {
+    const machineData = { ...props.machineData, [type]: val }
+    // console.log('machineData --->', machineData)
+    props.updateMachineData(machineData)
+  }
 
   const handleSubmit = async (event) => {
-    console.log(states.value)
     event.preventDefault()
+    const {machineName, sites, subModule, machineType} = props.machineData
+    console.log(props.machineData)
+    if(!machineName || !sites || !subModule || !machineType || sites == 0 || subModule == 0 || machineType == 0){
+      alert("All data required")
+    }
+    else{
+      navigate("/customer")
+    }
   }
 
   return (
@@ -69,11 +85,11 @@ const MachineInput = (props) => {
               name='machineName'
               autoComplete='email'
               value={props.machineData.machineName}
-              // onInput={(e) => updateValue('machineName', e.target.value)}
+              onInput={(e) => setMachineData('machineName', e.target.value)}
               autoFocus
             />
 
-            <InputLabel id='machine-select-label'>Machine Type</InputLabel>
+            <InputLabel id='machine-select-label'>Machine Type </InputLabel>
             <Select
               fullWidth
               required
@@ -81,13 +97,17 @@ const MachineInput = (props) => {
               id='machine-select'
               value={props.machineData.machineType}
               label='Machine Type'
-              // onChange={(e) => {
-              //   updateValue('machineType', e.target.value)
-              // }}
+              onChange={(e) => {
+                setMachineData('machineType', e.target.value)
+              }}
             >
-              <MenuItem value={'Machine type 1'}>Machine type 1</MenuItem>
-              <MenuItem value={'Machine type 2'}>Machine type 2</MenuItem>
-              <MenuItem value={'Machine type 3'}>Machine type 3</MenuItem>
+              {states.value.machineTypeList.map(({ machineId, machineType }) => {
+                return (
+                  <MenuItem key={`machine_type_${machineId}`} value={machineId}>
+                    {machineType}
+                  </MenuItem>
+                )
+              })}
             </Select>
 
             <InputLabel id='demo-simple-select-label'>Sub Module</InputLabel>
@@ -98,13 +118,17 @@ const MachineInput = (props) => {
               id='machine-submodule'
               value={props.machineData.subModule}
               label='Sub Module'
-              // onChange={(e) => {
-              //   updateValue('subModule', e.target.value)
-              // }}
+              onChange={(e) => {
+                setMachineData('subModule', e.target.value)
+              }}
             >
-              <MenuItem value={'Sub Module 1'}>Sub Module 1</MenuItem>
-              <MenuItem value={'Sub Module 2'}>Sub Module 2</MenuItem>
-              <MenuItem value={'Sub Module 3'}>Sub Module 3</MenuItem>
+              {states.value.subModuleList.map(({ subModuleId, subModule }) => {
+                return (
+                  <MenuItem key={`sub_modules_${subModuleId}`} value={subModuleId}>
+                    {subModule}
+                  </MenuItem>
+                )
+              })}
             </Select>
 
             <InputLabel id='demo-simple-select-label'>Site</InputLabel>
@@ -113,14 +137,18 @@ const MachineInput = (props) => {
               required
               labelId='demo-simple-select-label'
               id='demo-simple-select'
-              value={'1'}
+              value={props.machineData.sites}
               label='Site'
-              // onChange={(e) => {
-              //   updateValue('sites', e.target.value)
-              // }}
+              onChange={(e) => {
+                setMachineData('sites', e.target.value)
+              }}
             >
-              {states.value.sitesList.map(({siteId, sites}) => {
-                return <MenuItem key={`sites_${siteId}`} value={siteId}>{sites}</MenuItem>
+              {states.value.sitesList.map(({ siteId, sites }) => {
+                return (
+                  <MenuItem key={`sites_${siteId}`} value={siteId}>
+                    {sites}
+                  </MenuItem>
+                )
               })}
             </Select>
             <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
@@ -134,11 +162,9 @@ const MachineInput = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-  // console.log("machine state --->", state)
-  console.log('props from state --->', props)
   return {
     token: state.setUserToken,
-    ...state
+    ...state, ...props
   }
 }
 
