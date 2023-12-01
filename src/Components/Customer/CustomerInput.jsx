@@ -27,8 +27,7 @@ import Session from '../User/Session'
 const CustomerInput = (props) => {
   // const navigate = useNavigate()
 
-  // effect(() => console.log(states.value));
-  console.log(props)
+  console.log("Customer props --->",props)
 
   const handleSubmit = async (event) => {
     console.log(states.value)
@@ -49,7 +48,7 @@ const CustomerInput = (props) => {
           }}
         >
           <Typography component='h1' variant='h5'>
-            Machine Details
+            Customer Details
           </Typography>
           <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -64,59 +63,9 @@ const CustomerInput = (props) => {
               autoFocus
             />
 
-            <InputLabel id='machine-select-label'>Machine Type</InputLabel>
-            <Select
-              fullWidth
-              required
-              labelId='machine-select-label'
-              id='machine-select'
-              value={states.value.machineType}
-              label='Machine Type'
-              onChange={(e) => {
-                updateValue('machineType', e.target.value)
-              }}
-            >
-              <MenuItem value={'Machine type 1'}>Machine type 1</MenuItem>
-              <MenuItem value={'Machine type 2'}>Machine type 2</MenuItem>
-              <MenuItem value={'Machine type 3'}>Machine type 3</MenuItem>
-            </Select>
-
-            <InputLabel id='demo-simple-select-label'>Sub Module</InputLabel>
-            <Select
-              fullWidth
-              required
-              labelId='machine-submodule-label'
-              id='machine-submodule'
-              value={states.value.subModule}
-              label='Sub Module'
-              onChange={(e) => {
-                updateValue('subModule', e.target.value)
-              }}
-            >
-              <MenuItem value={'Sub Module 1'}>Sub Module 1</MenuItem>
-              <MenuItem value={'Sub Module 2'}>Sub Module 2</MenuItem>
-              <MenuItem value={'Sub Module 3'}>Sub Module 3</MenuItem>
-            </Select>
-
-            <InputLabel id='demo-simple-select-label'>Site</InputLabel>
-            <Select
-              fullWidth
-              required
-              labelId='demo-simple-select-label'
-              id='demo-simple-select'
-              value={states.value.sites}
-              label='Site'
-              onChange={(e) => {
-                updateValue('sites', e.target.value)
-              }}
-            >
-              <MenuItem value={'Sites 1'}>Site 1</MenuItem>
-              <MenuItem value={'Sites 2'}>Site 2</MenuItem>
-              <MenuItem value={'Sites 3'}>Site 3</MenuItem>
-            </Select>
 
             <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
-              Submit and Enter Customer Details
+              Submit
             </Button>
           </Box>
         </Box>
@@ -127,8 +76,8 @@ const CustomerInput = (props) => {
 
 const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
-  console.log('props --->', props)
-  return {}
+  // console.log('props --->', props)
+  return {...state, ...props}
 }
 
 // onSubmitValue is used to avoid naming conflicts with submitValue
