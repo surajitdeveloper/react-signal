@@ -27,7 +27,7 @@ import Session from '../User/Session'
 const CustomerInput = (props) => {
   // const navigate = useNavigate()
 
-  console.log("Customer props --->",props)
+  console.log('Customer props --->', props)
 
   const handleSubmit = async (event) => {
     console.log(states.value)
@@ -63,7 +63,6 @@ const CustomerInput = (props) => {
               autoFocus
             />
 
-
             <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
               Submit
             </Button>
@@ -77,7 +76,7 @@ const CustomerInput = (props) => {
 const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
   // console.log('props --->', props)
-  return {...state, ...props}
+  return { ...state, ...props }
 }
 
 // onSubmitValue is used to avoid naming conflicts with submitValue

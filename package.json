@@ -1,6 +1,6 @@
 {
   "name": "lab-health-check",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "homepage": "https://surajitdeveloper.github.io/react-signal",
   "private": true,
   "dependencies": {
@@ -24,7 +24,10 @@
     "test:watch": "babel-watch --watch src --watch test -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
     "eject": "react-scripts --openssl-legacy-provider eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -20,6 +20,8 @@ import '@fontsource/roboto/700.css'
 import { useNavigate } from 'react-router-dom'
 import { states, updateValue } from '../../Config/signalVariables'
 
+import { login } from '../../Api/Api'
+
 const Login = (props) => {
   const navigate = useNavigate()
 
@@ -27,6 +29,7 @@ const Login = (props) => {
     e.preventDefault()
     // api call
     const { username, password } = states.value
+
     if (username === 'admin' && password === 'admin') {
       props.setUserToken('abcd1234') // set value to reducer
       updateValue('username', '')

@@ -16,7 +16,9 @@ const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
   // console.log('props --->', props)
   return {
-    token: state.setUserToken, ...state, ...props
+    token: state.setUserToken,
+    ...state,
+    ...props
   }
 }
 

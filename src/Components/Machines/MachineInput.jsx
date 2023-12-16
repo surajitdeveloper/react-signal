@@ -49,13 +49,12 @@ const MachineInput = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const {machineName, sites, subModule, machineType} = props.machineData
+    const { machineName, sites, subModule, machineType } = props.machineData
     console.log(props.machineData)
-    if(!machineName || !sites || !subModule || !machineType || sites == 0 || subModule == 0 || machineType == 0){
-      alert("All data required")
-    }
-    else{
-      navigate("/customer")
+    if (!machineName || !sites || !subModule || !machineType || sites == 0 || subModule == 0 || machineType == 0) {
+      alert('All data required')
+    } else {
+      navigate('/customer')
     }
   }
 
@@ -164,7 +163,8 @@ const MachineInput = (props) => {
 const mapStateToProps = (state, props) => {
   return {
     token: state.setUserToken,
-    ...state, ...props
+    ...state,
+    ...props
   }
 }
 
