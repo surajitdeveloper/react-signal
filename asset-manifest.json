@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-signal/static/css/main.b592d4b0.css",
-    "main.js": "/react-signal/static/js/main.98a0a085.js",
+    "main.js": "/react-signal/static/js/main.c43fe8ba.js",
     "static/media/roboto-latin-500-normal.woff2": "/react-signal/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/react-signal/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
     "static/media/roboto-latin-400-normal.woff2": "/react-signal/static/media/roboto-latin-400-normal.b009a76ad6afe4ebd301.woff2",
@@ -60,10 +60,10 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/react-signal/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
     "index.html": "/react-signal/index.html",
     "main.b592d4b0.css.map": "/react-signal/static/css/main.b592d4b0.css.map",
-    "main.98a0a085.js.map": "/react-signal/static/js/main.98a0a085.js.map"
+    "main.c43fe8ba.js.map": "/react-signal/static/js/main.c43fe8ba.js.map"
   },
   "entrypoints": [
     "static/css/main.b592d4b0.css",
-    "static/js/main.98a0a085.js"
+    "static/js/main.c43fe8ba.js"
   ]
 }
