@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import MachineInput from './Machines/MachineInput'
 import Login from './User/Login'
+import UserList from './User/UserList'
 import CustomerInput from './Customer/CustomerInput'
-
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 // CSS Import (this style is used when testing React Components on Node.js instead of the Browser)
@@ -21,7 +21,7 @@ class AppRoute extends Component {
             <Route path='/' element={<Login />} />
             <Route path='/machine' element={<MachineInput />} />
             <Route path='/customer' element={<CustomerInput />} />
-            {/* <Route path="*" element={<Login />} /> */}
+            <Route path='/list' element={<UserList />} />
           </Routes>
         </Router>
       </div>
