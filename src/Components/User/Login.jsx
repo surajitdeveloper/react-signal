@@ -28,13 +28,13 @@ const Login = (props) => {
   const doLogin = async (e) => {
     e.preventDefault()
     // api call
-    try{
+    try {
       const { username, password } = states.value
 
       const loginData = await login({ username, password })
-  
+
       console.log(loginData)
-  
+
       if (username === 'admin' && password === 'admin') {
         props.setUserToken('abcd1234') // set value to reducer
         updateValue('username', '')
@@ -44,11 +44,9 @@ const Login = (props) => {
         alert('Invalid credentials')
       }
       // login
-    }
-    catch(err){
+    } catch (err) {
       console.log(err.response.data.message)
     }
-    
   }
 
   return (

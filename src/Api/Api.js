@@ -8,6 +8,6 @@ export const todoList = async () => {
 }
 //
 export const login = async (credential) => {
-  const api = await axios.post(`${PRODUCTION_URL}/login`,credential)
+  const api = await axios.post(`${PRODUCTION_URL}/login`, credential)
   return api.data
 }
