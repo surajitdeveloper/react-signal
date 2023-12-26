@@ -1,7 +1,7 @@
 {
   "name": "lab-health-check",
   "version": "2.2.1",
-  "homepage": "https://surajitdeveloper.github.io/react-signal",
+  "homepage": "https://surajitdeveloper.github.io/",
   "private": true,
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "run-server": "http-server './build' &",
+    "run-server": "http-server -p 8282 \"./build\" &",
     "stop-server": "pkill -f http-server",
     "lint": "eslint  --fix src/**/*.js",
     "format": "prettier src/**/*.js --write. --config ./.prettierrc",
