@@ -22,7 +22,7 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "lint": "eslint  --fix src/**/*.js",
     "format": "prettier src/**/*.js --write. --config ./.prettierrc",
-    "build": "yarn install && yarn lint:fix && npm run prettier:fix && react-scripts --openssl-legacy-provider build",
+    "build": "yarn lint:fix && npm run prettier:fix && react-scripts --openssl-legacy-provider build",
     "test": "babel-node -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
     "test:watch": "babel-watch --watch src --watch test -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
     "eject": "react-scripts --openssl-legacy-provider eject",
