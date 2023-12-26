@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "run-server": "http-server -p 8282 build &",
+    "run-server": "http-server './build' &",
     "stop-server": "pkill -f http-server",
     "lint": "eslint  --fix src/**/*.js",
     "format": "prettier src/**/*.js --write. --config ./.prettierrc",
