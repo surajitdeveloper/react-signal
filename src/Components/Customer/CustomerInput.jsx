@@ -73,6 +73,7 @@ const CustomerInput = (props) => {
   )
 }
 
+
 const mapStateToProps = (state, props) => {
   // console.log("machine state --->", state)
   // console.log('props --->', props)
