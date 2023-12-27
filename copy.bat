@@ -1,3 +1,5 @@
+whoami
 yarn install
 yarn run build
-move .build ../../../build
+yarn run stop-server
+yarn run run-server
