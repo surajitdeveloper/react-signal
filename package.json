@@ -23,7 +23,7 @@
     "run-server": "nohup http-server -p 8282 \"./build\" &",
     "stop-server": "pkill -f http-server",
     "lint": "eslint  --fix src/**/*.js",
-    "format": "prettier src/**/*.js --write. --config ./.prettierrc",
+    "format": "prettier src/**/*.js --write",
     "build": "yarn lint:fix && npm run prettier:fix && react-scripts --openssl-legacy-provider build",
     "test": "babel-node -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
     "test:watch": "babel-watch --watch src --watch test -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
