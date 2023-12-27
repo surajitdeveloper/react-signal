@@ -1,6 +1,6 @@
 {
-  "name": "lab-health-check",
-  "version": "2.2.1",
+  "name": "react-signal",
+  "version": "2.2.2",
   "homepage": "https://surajitdeveloper.github.io/",
   "private": true,
   "dependencies": {
@@ -9,7 +9,7 @@
     "@popperjs/core": "^2.11.8",
     "@preact/signals-react": "^2.0.0",
     "@sideway/address": "^5.0.0",
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
