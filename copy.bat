@@ -8,5 +8,5 @@ whoami
 yarn install
 yarn run build
 rmdir /s /q C:\Users\Administrator\OneDrive\Windows\Jenkins\xampp\htdocs\build
-#rmdir ../../../xampp/htdocs/build -recurse -force
+rmdir /s /q ../../../xampp/htdocs/build
 move ./build ../../../xampp/htdocs
