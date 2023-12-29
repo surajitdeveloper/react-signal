@@ -7,4 +7,6 @@ yarn run serve
 
 yarn install
 yarn run build
+copy ./build ../../../xampp/htdocs
+rmdir ../../../xampp/htdocs
 move ./build ../../../xampp/htdocs
