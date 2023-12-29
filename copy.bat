@@ -7,6 +7,6 @@ whoami
 
 yarn install
 yarn run build
-Remove-Item C:\Users\Administrator\OneDrive\Windows\Jenkins\.jenkins\xampp\htdocs\build
-Remove-Item ../../../xampp/htdocs/build
+Remove-Item C:\Users\Administrator\OneDrive\Windows\Jenkins\.jenkins\xampp\htdocs\build -recurse -force
+Remove-Item ../../../xampp/htdocs/build -recurse -force
 move ./build ../../../xampp/htdocs
