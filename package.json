@@ -1,7 +1,7 @@
 {
   "name": "react-signal",
-  "version": "2.3.0",
-  "homepage": "https://surajitdeveloper.github.io/",
+  "version": "2.3.1",
+  "homepage": "https://surajitdeveloper.github.io",
   "private": true,
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
