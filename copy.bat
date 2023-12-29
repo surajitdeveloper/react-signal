@@ -7,16 +7,6 @@ whoami
 
 yarn install
 yarn run build
-#Remove-Item C:\Users\Administrator\OneDrive\Windows\Jenkins\.jenkins\xampp\htdocs\build -recurse -force
-#Remove-Item ../../../xampp/htdocs/build -recurse -force
-$FolderName = "../../../xampp/htdocs/build"
-if (Test-Path $FolderName) {
- 
-    Write-Host "Folder Exists"
-    Remove-Item $FolderName -Recurse -Force
-}
-else
-{
-    Write-Host "Folder Doesn't Exists"
-}
+Remove-Item C:\Users\Administrator\OneDrive\Windows\Jenkins\.jenkins\xampp\htdocs\build -recurse -force
+Remove-Item ../../../xampp/htdocs/build -recurse -force
 move ./build ../../../xampp/htdocs
