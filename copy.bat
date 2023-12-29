@@ -7,5 +7,5 @@ yarn run serve
 
 yarn install
 yarn run build
-rmdir ../../../xampp/htdocs/build
+rmdir C:/Users/Administrator/OneDrive/Windows/Jenkins/.jenkins/xampp/htdocs/build
 move ./build ../../../xampp/htdocs
