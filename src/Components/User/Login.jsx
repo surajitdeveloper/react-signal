@@ -43,8 +43,8 @@ const Login = (props) => {
       setShowError(true)
       states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status = API_STATUS.FAILED
       states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message = err.response.data.message
-      console.log(err.response.data.message)
-      console.log(states.value)
+      // console.log(err.response.data.message)
+      // console.log(states.value)
     }
   }
 
