@@ -20,17 +20,14 @@ import '@fontsource/roboto/700.css'
 import { useNavigate } from 'react-router-dom'
 import { states, updateValue } from '../../Config/signalVariables'
 
+import { API_NAME, API_STATUS } from '../../Config/constant'
+
 import { login } from '../../Api/Api'
 
 const Login = (props) => {
   const navigate = useNavigate()
 
-
-  const setValue = (input, value) =>{
-    updateValue(input, value)
-    console.log(states.value)
-    console.log(states.value.username)
-  }
+  console.log(states.value.errorMessage)
 
   const doLogin = async (e) => {
     e.preventDefault()
