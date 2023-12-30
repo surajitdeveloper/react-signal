@@ -1,8 +1,6 @@
 import { signal } from '@preact/signals-react'
 
 const states = signal({
-  username: '',
-  password: '',
   machineTypeList: [
     { machineId: 1, machineType: 'Machine type 1' },
     { machineId: 2, machineType: 'Machine type 2' },
@@ -18,6 +16,7 @@ const states = signal({
     { siteId: 2, sites: 'Sites 2' },
     { siteId: 3, sites: 'Sites 3' }
   ]
+  
 })
 
 const updateValue = (input, value) => {
