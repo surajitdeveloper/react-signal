@@ -1,6 +1,6 @@
 import { signal } from '@preact/signals-react'
 
-export const states = signal({
+const states = signal({
   username: '',
   password: '',
   machineTypeList: [
@@ -20,6 +20,8 @@ export const states = signal({
   ]
 })
 
-export const updateValue = (input, value) => {
+const updateValue = (input, value) => {
   states.value = { ...states.value, [input]: value }
 }
+
+export {states, updateValue}

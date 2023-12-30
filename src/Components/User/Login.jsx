@@ -25,6 +25,13 @@ import { login } from '../../Api/Api'
 const Login = (props) => {
   const navigate = useNavigate()
 
+
+  const setValue = (input, value) =>{
+    updateValue(input, value)
+    console.log(states.value)
+    console.log(states.value.username)
+  }
+
   const doLogin = async (e) => {
     e.preventDefault()
     // api call
@@ -73,7 +80,6 @@ const Login = (props) => {
               required
               fullWidth
               id='email'
-              value={states.value.username}
               onInput={(e) => {
                 updateValue('username', e.target.value)
               }}
@@ -82,12 +88,12 @@ const Login = (props) => {
               autoFocus
             />
 
+
             <TextField
               margin='normal'
               required
               fullWidth
               id='password'
-              value={states.value.password}
               onInput={(e) => {
                 updateValue('password', e.target.value)
               }}
