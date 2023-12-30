@@ -3,16 +3,11 @@ import * as React from 'react'
 
 import { connect } from 'react-redux'
 import { userAction } from '../../Redux/actions/userActions'
-import Link from '@mui/material/Link'
-import Grid from '@mui/material/Grid'
-import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline'
-import TextField from '@mui/material/TextField'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
+
+import { Link, Grid, Button, CssBaseline, TextField, Box, Typography, Container, Avatar, Alert, AlertTitle } from '@mui/material'
+
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
@@ -26,11 +21,13 @@ import { login } from '../../Api/Api'
 
 const Login = (props) => {
   const navigate = useNavigate()
-
-  console.log(states.value.errorMessage)
-
+  const [showError, setShowError] = React.useState(
+    states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status === API_STATUS.FAILED || false
+  )
+  console.log(states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status === API_STATUS.FAILED)
   const doLogin = async (e) => {
     e.preventDefault()
+    setShowError(false)
     // api call
     try {
       const { username, password } = states.value
@@ -49,7 +46,11 @@ const Login = (props) => {
       }
       // login
     } catch (err) {
+      setShowError(true)
+      states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status = API_STATUS.FAILED
+      states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message = err.response.data.message
       console.log(err.response.data.message)
+      console.log(states.value)
     }
   }
 
@@ -85,7 +86,6 @@ const Login = (props) => {
               autoFocus
             />
 
-
             <TextField
               margin='normal'
               required
@@ -98,6 +98,15 @@ const Login = (props) => {
               name='password'
               type='password'
             />
+
+            {showError ? (
+              <Alert severity='error'>
+                <AlertTitle>Error</AlertTitle>
+                {states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message}
+              </Alert>
+            ) : (
+              ''
+            )}
 
             <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
               Login
