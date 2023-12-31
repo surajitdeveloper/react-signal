@@ -23,7 +23,6 @@ const Login = (props) => {
   const [showError, setShowError] = React.useState(
     states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status === API_STATUS.FAILED || false
   )
-  console.log(states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status === API_STATUS.FAILED)
   const doLogin = async (e) => {
     e.preventDefault()
     setShowError(false)
@@ -32,14 +31,14 @@ const Login = (props) => {
       const { username, password } = states.value
       await props.doLogin({ username, password })// api call
 
+      console.log(props)
+
       updateValue('username', '')
       updateValue('password', '')
       navigate('/machine')
       // login
     } catch (err) {
       setShowError(true)
-      states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status = API_STATUS.FAILED
-      states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message = err.response.data.message
       // console.log(err.response.data.message)
       // console.log(states.value)
     }
