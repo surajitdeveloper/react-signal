@@ -12,13 +12,17 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { store } from './Redux/store'
 
+import { ErrorBoundaryContext } from 'react-use-error-boundary'
+
 const domNode = document.getElementById('root')
 const root = createRoot(domNode)
 
 root.render(
-  <Provider store={store}>
-    <AppRoute />
-  </Provider>
+  <ErrorBoundaryContext>
+    <Provider store={store}>
+      <AppRoute />
+    </Provider>
+  </ErrorBoundaryContext>
 )
 
 // If you want your app to work offline and load faster, you can change

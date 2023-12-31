@@ -1,5 +1,5 @@
 // React Imports
-import React, { Component } from 'react'
+import * as React from 'react'
 import MachineInput from './Machines/MachineInput'
 import Login from './User/Login'
 import UserList from './User/UserList'
@@ -12,21 +12,20 @@ if (canUseDOM) {
   require('./App.css')
 }
 
-class AppRoute extends Component {
-  render() {
-    return (
-      <div className='App'>
-        <Router>
-          <Routes>
-            <Route path='/' element={<Login />} />
-            <Route path='/machine' element={<MachineInput />} />
-            <Route path='/customer' element={<CustomerInput />} />
-            <Route path='/list' element={<UserList />} />
-          </Routes>
-        </Router>
-      </div>
-    )
-  }
+const AppRoute = ({ children }) => {
+  console.log('children --->', children)
+  return (
+    <div className='App'>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/machine' element={<MachineInput />} />
+          <Route path='/customer' element={<CustomerInput />} />
+          <Route path='/list' element={<UserList />} />
+        </Routes>
+      </Router>
+    </div>
+  )
 }
 
 export default AppRoute
