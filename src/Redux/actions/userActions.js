@@ -1,4 +1,5 @@
 import { SET_USER_TOKEN } from '../../Config/constant'
+
 export const userAction = (token) => {
   // console.log("user Action --->", token)
   return {
@@ -7,4 +8,9 @@ export const userAction = (token) => {
       setUserToken: token
     }
   }
+}
+
+
+export const doLoginAction = async (data) =>{
+  console.log("login action --->",data)
 }

@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 import { connect } from 'react-redux'
-import { userAction } from '../../Redux/actions/userActions'
+import { userAction, doLoginAction } from '../../Redux/actions/userActions'
 
 import { Link, Grid, Button, CssBaseline, TextField, Box, Typography, Container, Avatar, Alert, AlertTitle } from '@mui/material'
 
@@ -33,8 +33,8 @@ const Login = (props) => {
       const { username, password } = states.value
 
       const loginData = await login({ username, password }) // api call
-
-      props.setUserToken(loginData.token) // set value to reducer
+      console.log(await props.doLogin({ username, password }))
+      props.setToken(loginData.token) // set value to reducer
       updateValue('username', '')
       updateValue('password', '')
       navigate('/machine')
@@ -128,12 +128,15 @@ const mapStateToProps = (state) => {
   // console.log("state --->", state)
   // console.log("props --->", props)
   return {
+    token: state.setUserToken,
     ...state
   }
 }
 
 const mapActionsToProps = {
-  setUserToken: userAction
+  setToken: userAction,
+  doLogin: doLoginAction
+
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Login)
