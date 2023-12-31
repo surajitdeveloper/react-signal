@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 import { connect } from 'react-redux'
-import { userAction, doLoginAction } from '../../Redux/actions/userActions'
+import { userAction } from '../../Redux/actions/userActions'
 
 import { Link, Grid, Button, CssBaseline, TextField, Box, Typography, Container, Avatar, Alert, AlertTitle } from '@mui/material'
 
@@ -17,7 +17,6 @@ import { states, updateValue } from '../../Config/signalVariables'
 
 import { API_NAME, API_STATUS } from '../../Config/constant'
 
-import { login } from '../../Api/Api'
 
 const Login = (props) => {
   const navigate = useNavigate()
@@ -31,10 +30,8 @@ const Login = (props) => {
     
     try {
       const { username, password } = states.value
+      await props.doLogin({ username, password })// api call
 
-      const loginData = await login({ username, password }) // api call
-      console.log(await props.doLogin({ username, password }))
-      props.setToken(loginData.token) // set value to reducer
       updateValue('username', '')
       updateValue('password', '')
       navigate('/machine')
@@ -134,9 +131,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-  setToken: userAction,
-  doLogin: doLoginAction
-
+  doLogin: userAction
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Login)
