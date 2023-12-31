@@ -1,6 +1,6 @@
 {
   "name": "react-signal",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "homepage": "http://95.217.211.212/stagging/",
   "private": true,
   "dependencies": {
@@ -26,15 +26,15 @@
     "stop-server": "pkill -f http-server",
     "lint": "eslint  --fix src/**/*.js",
     "format": "prettier src/**/*.js --write",
-    "build": "yarn lint:fix && npm run prettier:fix && react-scripts --openssl-legacy-provider build",
+    "build": "yarn run lint:fix && yarn run prettier:fix && react-scripts --openssl-legacy-provider build",
     "test": "babel-node -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
     "test:watch": "babel-watch --watch src --watch test -- node_modules/cucumber/bin/cucumber-js test/features --require test/step_definitions",
     "eject": "react-scripts --openssl-legacy-provider eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "yarn run lint -- --fix",
     "prettier": "npx prettier src --check",
-    "prettier:fix": "npm run prettier -- --write",
+    "prettier:fix": "yarn run prettier -- --write",
     "serve": "serve -s build"
   },
   "eslintConfig": {

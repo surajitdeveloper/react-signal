@@ -5,10 +5,10 @@ export const SET_PASSWORD = 'SET_PASSWORD'
 export const SAVE_MACHINE_DETAILS = 'SAVE_MACHINE_DETAILS'
 
 export const API_NAME = {
-    LOGIN_API: "LOGIN_API"
+  LOGIN_API: 'LOGIN_API'
 }
 
 export const API_STATUS = {
-    SUCCESS: 'Success',
-    FAILED: "Failed"
+  SUCCESS: 'Success',
+  FAILED: 'Failed'
 }

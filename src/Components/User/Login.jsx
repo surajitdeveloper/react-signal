@@ -17,8 +17,16 @@ import { states, updateValue } from '../../Config/signalVariables'
 
 import { API_NAME, API_STATUS } from '../../Config/constant'
 
+import { withErrorBoundary, useErrorBoundary } from 'react-use-error-boundary'
 
-const Login = (props) => {
+const Login = withErrorBoundary((props) => {
+  const [error, resetError] = useErrorBoundary(
+    // You can optionally log the error to an error reporting service
+    (error, errorInfo) => {
+      console.log(error)
+      console.log(errorInfo)
+    }
+  )
   const navigate = useNavigate()
   const [showError, setShowError] = React.useState(
     states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status === API_STATUS.FAILED || false
@@ -26,10 +34,10 @@ const Login = (props) => {
   const doLogin = async (e) => {
     e.preventDefault()
     setShowError(false)
-    
+
     try {
       const { username, password } = states.value
-      await props.doLogin({ username, password })// api call
+      await props.doLogin({ username, password }) // api call
 
       console.log(props)
 
@@ -118,7 +126,7 @@ const Login = (props) => {
       </Container>
     </>
   )
-}
+})
 
 const mapStateToProps = (state) => {
   // console.log("state --->", state)

@@ -18,11 +18,11 @@ const states = signal({
     { siteId: 2, sites: 'Sites 2' },
     { siteId: 3, sites: 'Sites 3' }
   ],
-  errorMessage:[{name: API_NAME.LOGIN_API, status: '', message: ''}]
+  errorMessage: [{ name: API_NAME.LOGIN_API, status: '', message: '' }]
 })
 
 const updateValue = (input, value) => {
   states.value = { ...states.value, [input]: value }
 }
 
-export {states, updateValue}
+export { states, updateValue }
