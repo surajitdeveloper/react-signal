@@ -34,6 +34,7 @@ const Login = withErrorBoundary((props) => {
   const doLogin = async (e) => {
     e.preventDefault()
     setShowError(false)
+    resetError()
 
     try {
       const { username, password } = states.value
@@ -46,6 +47,7 @@ const Login = withErrorBoundary((props) => {
       navigate('/machine')
       // login
     } catch (err) {
+      console.log(error)
       setShowError(true)
       // console.log(err.response.data.message)
       // console.log(states.value)
