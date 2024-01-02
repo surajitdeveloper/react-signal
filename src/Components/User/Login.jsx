@@ -44,9 +44,9 @@ const Login = withErrorBoundary((props) => {
 
       console.log(props)
 
-      updateValue('username', '')
-      updateValue('password', '')
-      navigate('/machine')
+      // updateValue('username', '')
+      // updateValue('password', '')
+      // navigate('/machine') // redirect
       // login
     } catch (err) {
       console.log(err)
