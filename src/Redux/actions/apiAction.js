@@ -1,4 +1,4 @@
-import { login } from '../../Api/Api'
+import { api } from '../../Api/Api'
 
 import { API_CALL } from '../../Config/constant'
 
@@ -14,6 +14,9 @@ export const apiCallAction = async (dispatch , apiName, data = {}) => { // dispa
   apiDetails.DATA = data
 
   console.log(apiDetails)
+
+
+  await api(apiDetails)
 
   // console.log('login action --->', data)
   // const { username, password } = data
