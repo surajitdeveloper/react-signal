@@ -9,7 +9,7 @@ export const FETCHING_DATA = 'FETCHING_DATA'
 export const LOGIN_API = 'LOGIN_API'
 
 export const API_CALL = [
-  { NAME: LOGIN_API, PATH: 'login', STATUS: '', CODE: 0, DATA: {}, METHOD: 'post', PAYLOAD: {}, afterApiAction: SET_USER_TOKEN }
+  { NAME: LOGIN_API, PATH: 'login', STATUS: '', CODE: 0, DATA: {token: ''}, METHOD: 'post', PAYLOAD: {}, afterApiAction: SET_USER_TOKEN }
 ]
 
 export const STATUS = [

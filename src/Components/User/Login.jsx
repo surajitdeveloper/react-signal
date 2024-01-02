@@ -38,7 +38,7 @@ const Login = withErrorBoundary((props) => {
     try {
       const { username, password } = states.value
 
-      props.doLogin({ username, password }) // api call
+      await props.doLogin({ username, password }) // api call
 
       console.log('props --->', props)
 

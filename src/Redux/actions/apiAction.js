@@ -9,6 +9,11 @@ export const apiCallAction = async (dispatch, apiName, data = {}) => {
 
   apiDetails.PAYLOAD = data
 
+  dispatch({
+    type: apiDetails.afterApiAction,
+    payload: ''
+  })
+
   // console.log("apidetails --->", apiDetails)
 
   try {
