@@ -8,7 +8,7 @@ export const todoList = async () => {
 }
 
 export const api = async (data) => {
-  console.log(data)
+  // console.log(data)
   const { PATH, METHOD, PAYLOAD } = data
   switch (METHOD) {
     case 'post':

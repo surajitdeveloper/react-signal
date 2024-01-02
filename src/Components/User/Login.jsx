@@ -42,6 +42,13 @@ const Login = withErrorBoundary((props) => {
 
       console.log('props --->', props)
 
+      if(props.token){
+        alert("login success")
+      }
+      else{
+        alert("login error")
+      }
+
       // updateValue('username', '')
       // updateValue('password', '')
       // navigate('/machine') // redirect
