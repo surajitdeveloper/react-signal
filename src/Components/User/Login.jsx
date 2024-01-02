@@ -28,10 +28,8 @@ const Login = withErrorBoundary((props) => {
     }
   )
   // const navigate = useNavigate()
-  const [showError, setShowError] = React.useState(
-    false
-  )
-  // states.value.errorMessage.find((e) => e.name == LOGIN_API).status === API_STATUS.FAILED || 
+  const [showError, setShowError] = React.useState(false)
+  // states.value.errorMessage.find((e) => e.name == LOGIN_API).status === API_STATUS.FAILED ||
   const doLogin = async (e) => {
     e.preventDefault()
     setShowError(false)
@@ -42,7 +40,7 @@ const Login = withErrorBoundary((props) => {
 
       props.doLogin({ username, password }) // api call
 
-      console.log("props --->", props)
+      console.log('props --->', props)
 
       // updateValue('username', '')
       // updateValue('password', '')
