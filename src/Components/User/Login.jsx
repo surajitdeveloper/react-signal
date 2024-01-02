@@ -15,7 +15,7 @@ import '@fontsource/roboto/700.css'
 import { useNavigate } from 'react-router-dom'
 import { states, updateValue } from '../../Config/signalVariables'
 
-// import { API_CALL, LOGIN_API } from '../../Config/constant'
+import { LOGIN_API, API_CALL } from '../../Config/constant'
 
 import { withErrorBoundary, useErrorBoundary } from 'react-use-error-boundary'
 
@@ -43,15 +43,15 @@ const Login = withErrorBoundary((props) => {
       console.log('props --->', props)
 
       if(props.token){
-        alert("login success")
+        updateValue('username', '')
+      updateValue('password', '')
+      navigate('/machine') // redirect
       }
       else{
-        alert("login error")
+        setShowError(true)
+        console.log(API_CALL.find((e) => e.NAME === LOGIN_API))
       }
 
-      // updateValue('username', '')
-      // updateValue('password', '')
-      // navigate('/machine') // redirect
       // login
     } catch (err) {
       console.log(err)
@@ -109,9 +109,8 @@ const Login = withErrorBoundary((props) => {
 
             {showError ? (
               <Alert severity='error'>
-                <AlertTitle>Error</AlertTitle>
-                {/* {states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message} */}
-                Test
+                <AlertTitle>Error - {API_CALL.find((e) => e.NAME === LOGIN_API).DATA.code}</AlertTitle>
+                {API_CALL.find((e) => e.NAME === LOGIN_API).DATA.message}
               </Alert>
             ) : (
               ''
