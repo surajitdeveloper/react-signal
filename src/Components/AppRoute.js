@@ -12,7 +12,8 @@ if (canUseDOM) {
   require('./App.css')
 }
 
-const AppRoute = () => { // { children }
+const AppRoute = () => {
+  // { children }
   // console.log('children --->', children)
   return (
     <div className='App'>

@@ -20,7 +20,7 @@ export const apiCallAction = async (dispatch, apiName, data = {}) => {
     })
   } catch (error) {
     // console.log(error)
-    apiDetails.DATA = {code: error.code, message: error.response.data.message}
+    apiDetails.DATA = { code: error.code, message: error.response.data.message }
     // console.log(apiDetails)
     dispatch({
       type: apiDetails.AFTER_ACTION,
@@ -28,7 +28,7 @@ export const apiCallAction = async (dispatch, apiName, data = {}) => {
     })
     return dispatch({
       type: API_ERROR,
-      payload: {apiData:  {...apiDetails.DATA}}
+      payload: { apiData: { ...apiDetails.DATA } }
     })
   }
 }
