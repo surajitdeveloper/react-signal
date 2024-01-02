@@ -11,7 +11,7 @@ export const apiCallAction = async (dispatch , apiName, data = {}) => { // dispa
 
   const apiDetails = API_CALL.find(e=>e.NAME === apiName)
 
-  apiDetails.DATA = data
+  apiDetails.PAYLOAD = data
 
   console.log(apiDetails)
 
