@@ -5,7 +5,8 @@ import { apiCallAction } from './apiAction'
 export const callLoginAction = (data) => {
   return async (dispatch) => {
     dispatch({
-      type: FETCHING_DATA
+      type: FETCHING_DATA,
+      payload: {apiData: API_CALL.find((e) => e.NAME === LOGIN_API)}
     })
     await apiCallAction(dispatch, LOGIN_API, data)
   }

@@ -6,6 +6,8 @@ export const SAVE_MACHINE_DETAILS = 'SAVE_MACHINE_DETAILS'
 
 export const FETCHING_DATA = 'FETCHING_DATA'
 
+export const API_ERROR = 'API_ERROR'
+
 export const LOGIN_API = 'LOGIN_API'
 
 export const API_CALL = [

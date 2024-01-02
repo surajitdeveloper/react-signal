@@ -1,6 +1,6 @@
 import { api } from '../../Api/Api'
 
-import { API_CALL } from '../../Config/constant'
+import { API_CALL, API_ERROR } from '../../Config/constant'
 
 export const apiCallAction = async (dispatch, apiName, data = {}) => {
   // dispatch, LOGIN_API, data
@@ -11,25 +11,23 @@ export const apiCallAction = async (dispatch, apiName, data = {}) => {
 
   dispatch({
     type: apiDetails.afterApiAction,
-    payload: ''
+    payload: apiDetails.DATA
   })
 
-  // console.log("apidetails --->", apiDetails)
 
   try {
-    // console.log("api call start")
     const response = await api(apiDetails)
     apiDetails.DATA = { ...response }
-    // console.log("response --->", response)
     return dispatch({
       type: apiDetails.afterApiAction,
       payload: { ...response }
     })
   } catch (error) {
     console.log(error)
+    apiDetails.DATA = error
     return dispatch({
-      type: '',
-      payload: {}
+      type: API_ERROR,
+      payload: {apiData: apiDetails }
     })
   }
 }
