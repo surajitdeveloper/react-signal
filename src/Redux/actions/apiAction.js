@@ -4,40 +4,29 @@ import { API_CALL } from '../../Config/constant'
 
 export const apiCallAction = async (dispatch , apiName, data = {}) => { // dispatch, LOGIN_API, data
 
-  // console.log("api Name --->",apiName)
-  // console.log("api data --->",data)
 
-  // console.log(API_CALL)
 
   const apiDetails = API_CALL.find(e=>e.NAME === apiName)
 
-  apiDetails.PAYLOAD = data
-
-  console.log(apiDetails)
 
 
-  await api(apiDetails)
 
-  // console.log('login action --->', data)
-  // const { username, password } = data
-  // const loginData = await login({ username, password })
-  // console.log(loginData)
+  return async dispatch => {
+    try {
+      const response = await api(apiDetails);
+      return dispatch({
+        type: apiDetails.afterApiAction,
+        payload: response
+      });
+    }
+    catch(error) {
+      return dispatch({
+        type: '',
+        payload: {}
+      });
+    }
 
+    // return 'done';
+  }
 
-  // try {
-  //   const data = await axios.get(url).then(res => res.data)
-  //   dispatch({
-  //     type: SET_SOME_DATA,
-  //     data: data
-  //   })
-  // } catch (err) {
-  //   dispatch({
-  //     type: SET_SOME_DATA,
-  //     data: null
-  //   })
-  // }
-  // dispatch({
-  //   type: FETCHING_DATA,
-  //   fetching: false
-  // })
 }
