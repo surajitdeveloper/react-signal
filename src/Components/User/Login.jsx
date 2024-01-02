@@ -42,12 +42,11 @@ const Login = withErrorBoundary((props) => {
 
       console.log('props --->', props)
 
-      if(props.token){
+      if (props.token) {
         updateValue('username', '')
-      updateValue('password', '')
-      navigate('/machine') // redirect
-      }
-      else{
+        updateValue('password', '')
+        navigate('/machine') // redirect
+      } else {
         setShowError(true)
         console.log(API_CALL.find((e) => e.NAME === LOGIN_API))
       }
