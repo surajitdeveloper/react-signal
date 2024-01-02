@@ -1,7 +1,7 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { userReducer } from './reducers/userReducer'
 import { machineReducer } from './reducers/machineReducer'
-
+import { thunk } from 'redux-thunk'
 const allReducers = combineReducers({
   setUserToken: userReducer,
   machineData: machineReducer
@@ -18,5 +18,6 @@ export const store = createStore(
       machineType: 0
     }
   },
+  applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

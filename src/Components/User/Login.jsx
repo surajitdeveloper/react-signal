@@ -47,6 +47,7 @@ const Login = withErrorBoundary((props) => {
       navigate('/machine')
       // login
     } catch (err) {
+      console.log(err)
       console.log(error)
       setShowError(true)
       // console.log(err.response.data.message)
