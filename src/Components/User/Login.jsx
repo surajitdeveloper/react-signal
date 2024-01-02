@@ -48,7 +48,6 @@ const Login = withErrorBoundary((props) => {
         navigate('/machine') // redirect
       } else {
         setShowError(true)
-        console.log(API_CALL.find((e) => e.NAME === LOGIN_API))
       }
     } catch (err) {
       console.log(err)
