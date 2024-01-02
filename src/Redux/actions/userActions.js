@@ -1,4 +1,4 @@
-import { FETCHING_DATA, LOGIN_API } from '../../Config/constant'
+import { FETCHING_DATA, LOGIN_API, API_CALL } from '../../Config/constant'
 
 import { apiCallAction } from './apiAction'
 
