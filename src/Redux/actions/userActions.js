@@ -11,16 +11,4 @@ export const callLoginAction = (data) => {
   }
 }
 
-// export const setLoginToken = (data) =>{
-//   return dispatch => {
-//   dispatch(
-//     {
-//       type: SET_USER_TOKEN,
-//       payload: {
-//         setUserToken: data.token
-//       }
-//     }
-//   )}
-// }
-
 

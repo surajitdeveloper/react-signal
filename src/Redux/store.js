@@ -3,14 +3,14 @@ import { userReducer } from './reducers/userReducer'
 import { machineReducer } from './reducers/machineReducer'
 import { thunk } from 'redux-thunk'
 const allReducers = combineReducers({
-  setUserToken: userReducer,
+  token: userReducer,
   machineData: machineReducer
 })
 
 export const store = createStore(
   allReducers,
   {
-    setUserToken: '',
+    token: '',
     machineData: {
       machineName: '',
       sites: 0,
