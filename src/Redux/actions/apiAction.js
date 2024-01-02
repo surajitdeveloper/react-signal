@@ -1,5 +1,12 @@
 import { login } from '../../Api/Api'
 export const getSomeAsyncData = async (dispatch, url) => {
+
+  console.log('login action --->', data)
+  const { username, password } = data
+  const loginData = await login({ username, password })
+  console.log(loginData)
+
+  
   try {
     const data = await axios.get(url).then(res => res.data)
     dispatch({

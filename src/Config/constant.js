@@ -4,11 +4,11 @@ export const SET_USER_TOKEN = 'SET_USER_TOKEN'
 export const SET_PASSWORD = 'SET_PASSWORD'
 export const SAVE_MACHINE_DETAILS = 'SAVE_MACHINE_DETAILS'
 
-export const API_NAME = {
-  LOGIN_API: 'LOGIN_API'
-}
+export const FETCHING_DATA = "FETCHING_DATA"
 
-export const API_STATUS = {
-  SUCCESS: 'Success',
-  FAILED: 'Failed'
-}
+export const LOGIN_API = "LOGIN_API"
+
+export const API_CALL = [{ NAME: LOGIN_API, PATH: '/login', STATUS: '', CODE: 0, DATA: {}, METHOD: 'post', payload: {} }]
+
+
+export const STATUS = [{CODE: 200, TYPE: 'Success'}, {CODE: 400, TYPE: 'Error'}]

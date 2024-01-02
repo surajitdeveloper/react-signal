@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 import { connect } from 'react-redux'
-import { userAction } from '../../Redux/actions/userActions'
+import { callLoginAction } from '../../Redux/actions/userActions'
 
 import { Link, Grid, Button, CssBaseline, TextField, Box, Typography, Container, Avatar, Alert, AlertTitle } from '@mui/material'
 
@@ -141,7 +141,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-  doLogin: userAction
+  doLogin: callLoginAction
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Login)

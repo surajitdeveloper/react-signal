@@ -1,23 +1,24 @@
-import { SET_USER_TOKEN } from '../../Config/constant'
+import { FETCHING_DATA, LOGIN_API, SET_USER_TOKEN } from '../../Config/constant'
 
 
-export const userAction = (data) => {
-  console.log('login action --->', data)
-  const { username, password } = data
-  const loginData = await login({ username, password })
-  console.log(loginData)
-
+export const callLoginAction = (data) => {
   return dispatch => {
     dispatch({
-      type: FETCHING_DATA,
-      fetching: true
+      type: FETCHING_DATA
     })
-    getSomeAsyncData(dispatch, data)
-  }
-  return {
-    type: SET_USER_TOKEN,
-    payload: {
-      setUserToken: loginData.token
-    }
+    getSomeAsyncData(dispatch, LOGIN_API, data, SET_USER_TOKEN)
   }
 }
+
+export const setLoginToken = (data) =>{
+  dispatch(
+    {
+      type: SET_USER_TOKEN,
+      payload: {
+        setUserToken: data.token
+      }
+    }
+  )
+}
+
+
