@@ -1,4 +1,4 @@
-import { FETCHING_DATA, LOGIN_API, SET_USER_TOKEN, SET_USER_TOKEN } from '../../Config/constant'
+import { FETCHING_DATA, LOGIN_API, SET_USER_TOKEN } from '../../Config/constant'
 
 import { apiCallAction } from './apiAction'
 
@@ -12,6 +12,7 @@ export const callLoginAction = (data) => {
 }
 
 export const setLoginToken = (data) =>{
+  return dispatch => {
   dispatch(
     {
       type: SET_USER_TOKEN,
@@ -19,7 +20,7 @@ export const setLoginToken = (data) =>{
         setUserToken: data.token
       }
     }
-  )
+  )}
 }
 
 

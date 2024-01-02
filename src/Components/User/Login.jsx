@@ -15,7 +15,7 @@ import '@fontsource/roboto/700.css'
 import { useNavigate } from 'react-router-dom'
 import { states, updateValue } from '../../Config/signalVariables'
 
-import { API_NAME, API_STATUS } from '../../Config/constant'
+// import { API_CALL, LOGIN_API } from '../../Config/constant'
 
 import { withErrorBoundary, useErrorBoundary } from 'react-use-error-boundary'
 
@@ -29,8 +29,9 @@ const Login = withErrorBoundary((props) => {
   )
   const navigate = useNavigate()
   const [showError, setShowError] = React.useState(
-    states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).status === API_STATUS.FAILED || false
+    false
   )
+  // states.value.errorMessage.find((e) => e.name == LOGIN_API).status === API_STATUS.FAILED || 
   const doLogin = async (e) => {
     e.preventDefault()
     setShowError(false)
@@ -38,7 +39,8 @@ const Login = withErrorBoundary((props) => {
 
     try {
       const { username, password } = states.value
-      await props.doLogin({ username, password }) // api call
+
+      props.doLogin({ username, password }) // api call
 
       console.log(props)
 
@@ -103,7 +105,8 @@ const Login = withErrorBoundary((props) => {
             {showError ? (
               <Alert severity='error'>
                 <AlertTitle>Error</AlertTitle>
-                {states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message}
+                {/* {states.value.errorMessage.find((e) => e.name == API_NAME.LOGIN_API).message} */}
+                Test
               </Alert>
             ) : (
               ''

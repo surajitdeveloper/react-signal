@@ -1,6 +1,6 @@
 import { signal } from '@preact/signals-react'
 
-import { API_NAME } from './constant'
+import { LOGIN_API } from './constant'
 
 const states = signal({
   machineTypeList: [
@@ -18,7 +18,7 @@ const states = signal({
     { siteId: 2, sites: 'Sites 2' },
     { siteId: 3, sites: 'Sites 3' }
   ],
-  errorMessage: [{ name: API_NAME.LOGIN_API, status: '', message: '' }]
+  errorMessage: [{ name: LOGIN_API, status: '', message: '' }]
 })
 
 const updateValue = (input, value) => {

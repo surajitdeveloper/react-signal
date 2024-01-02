@@ -4,7 +4,8 @@ import { FETCHING_DATA, API_CALL } from '../../Config/constant'
 
 export const apiCallAction = async (dispatch , apiName, data = {}) => { // dispatch, LOGIN_API, data
 
-  console.log
+  console.log(apiName)
+  console.log(data)
 
   // console.log('login action --->', data)
   // const { username, password } = data
