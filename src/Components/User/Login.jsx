@@ -42,7 +42,7 @@ const Login = withErrorBoundary((props) => {
 
       props.doLogin({ username, password }) // api call
 
-      console.log(props)
+      console.log("props --->", props)
 
       // updateValue('username', '')
       // updateValue('password', '')
