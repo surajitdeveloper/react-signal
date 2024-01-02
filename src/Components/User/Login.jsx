@@ -40,7 +40,7 @@ const Login = withErrorBoundary((props) => {
 
       await props.doLogin({ username, password }) // api call
 
-      console.log('props --->', props)
+      // console.log('props --->', props)
 
       if (props.token) {
         updateValue('username', '')
@@ -50,8 +50,6 @@ const Login = withErrorBoundary((props) => {
         setShowError(true)
         console.log(API_CALL.find((e) => e.NAME === LOGIN_API))
       }
-
-      // login
     } catch (err) {
       console.log(err)
       console.log(error)
@@ -141,7 +139,7 @@ const mapStateToProps = (state) => {
   // console.log("state --->", state)
   // console.log("props --->", props)
   return {
-    token: state.setUserToken,
+    token: state.token,
     ...state
   }
 }
