@@ -1,12 +1,13 @@
-import { FETCHING_DATA, LOGIN_API, SET_USER_TOKEN } from '../../Config/constant'
+import { FETCHING_DATA, LOGIN_API, SET_USER_TOKEN, SET_USER_TOKEN } from '../../Config/constant'
 
+import { apiCallAction } from './apiAction'
 
 export const callLoginAction = (data) => {
   return dispatch => {
     dispatch({
       type: FETCHING_DATA
     })
-    getSomeAsyncData(dispatch, LOGIN_API, data, SET_USER_TOKEN)
+    apiCallAction(dispatch, LOGIN_API, data)
   }
 }
 

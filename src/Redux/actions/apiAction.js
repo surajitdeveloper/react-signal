@@ -1,26 +1,31 @@
 import { login } from '../../Api/Api'
-export const getSomeAsyncData = async (dispatch, url) => {
 
-  console.log('login action --->', data)
-  const { username, password } = data
-  const loginData = await login({ username, password })
-  console.log(loginData)
+import { FETCHING_DATA, API_CALL } from '../../Config/constant'
 
-  
-  try {
-    const data = await axios.get(url).then(res => res.data)
-    dispatch({
-      type: SET_SOME_DATA,
-      data: data
-    })
-  } catch (err) {
-    dispatch({
-      type: SET_SOME_DATA,
-      data: null
-    })
-  }
-  dispatch({
-    type: FETCHING_DATA,
-    fetching: false
-  })
+export const apiCallAction = async (dispatch , apiName, data = {}) => { // dispatch, LOGIN_API, data
+
+  console.log
+
+  // console.log('login action --->', data)
+  // const { username, password } = data
+  // const loginData = await login({ username, password })
+  // console.log(loginData)
+
+
+  // try {
+  //   const data = await axios.get(url).then(res => res.data)
+  //   dispatch({
+  //     type: SET_SOME_DATA,
+  //     data: data
+  //   })
+  // } catch (err) {
+  //   dispatch({
+  //     type: SET_SOME_DATA,
+  //     data: null
+  //   })
+  // }
+  // dispatch({
+  //   type: FETCHING_DATA,
+  //   fetching: false
+  // })
 }
