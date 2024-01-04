@@ -9,7 +9,6 @@
     "@mui/icons-material": "^5.15.2",
     "@popperjs/core": "^2.11.8",
     "@preact/signals-react": "^2.0.0",
-    "@react-pdf/renderer": "^3.1.14",
     "@sideway/address": "^5.0.0",
     "axios": "^1.6.3",
     "popper.js": "^1.16.1",
