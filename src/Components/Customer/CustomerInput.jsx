@@ -33,59 +33,10 @@ const CustomerInput = (props) => {
   // ReactPDF.renderToStream(<PdfExport />);
   console.log('Customer props --->', props)
 
-  const handleSubmit = async (event) => {
-    console.log(states.value)
-    event.preventDefault()
-  }
+
 
   return (
     <>
-      <Container component='main' maxWidth='xs'>
-        <Session />
-        <CssBaseline />
-        {/* <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <Typography component='h1' variant='h5'>
-            Customer Details
-          </Typography>
-          <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin='normal'
-              required
-              fullWidth
-              id='company'
-              label='Company Name'
-              name='company'
-              autoComplete='email'
-              value={states.value.company}
-              disabled
-            />
-
-            <TextField
-              margin='normal'
-              required
-              fullWidth
-              id='contactemail'
-              label='Contact Email'
-              name='contactemail'
-              autoComplete='email'
-              value={states.value.contactemail}
-              disabled
-            />
-
-            <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
-              Submit
-            </Button>
-          </Box>
-        </Box> */}
-        
-      </Container>
       <button onClick={() => toPDF()}>Download PDF</button>
          <div ref={targetRef}>
             <PdfExport />
@@ -117,12 +68,12 @@ export const PdfExport = () => {
             </p>
             <div className='form-row'>
               <div className='form-column'>
-                <label>Company:</label>
-                <input type='text' id='textField1' name='textField1' placeholder='Enter Company Name' />
+                <span>Company:</span>
+                <span>{states.value.company}</span>
               </div>
               <div className='form-column'>
-                <label>Contact Type:</label>
-                <input type='email' id='textField2' name='textField2' placeholder='Enter email here' />
+                <label>Contact Email:</label>
+                <span>{states.value.contactemail}</span>
               </div>
             </div>
             <div className='form-row'>
