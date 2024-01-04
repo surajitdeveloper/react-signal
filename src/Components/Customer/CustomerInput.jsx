@@ -55,12 +55,24 @@ const CustomerInput = (props) => {
               margin='normal'
               required
               fullWidth
-              id='machinename'
-              label='Machine Name'
-              name='machineName'
+              id='customername'
+              label='Customer Name'
+              name='customername'
               autoComplete='email'
-              onInput={(e) => updateValue('machineType', e.target.value)}
-              autoFocus
+              value={states.value.customername}
+              disabled
+            />
+
+<TextField
+              margin='normal'
+              required
+              fullWidth
+              id='contactemail'
+              label='Contact Email'
+              name='contactemail'
+              autoComplete='email'
+              value={states.value.contactemail}
+              disabled
             />
 
             <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
