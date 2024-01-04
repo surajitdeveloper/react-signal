@@ -30,21 +30,7 @@ import '@fontsource/roboto/700.css'
 import { states, updateValue } from '../../Config/signalVariables'
 import Session from '../User/Session'
 
-// import clsx from "clsx";
 
-
-// const useStyles = makeStyles({
-//   container: {
-//     height: "100%", // So that grids 1 & 4 go all the way down
-//     minHeight: 150, // Give minimum height to a div
-//     border: "1px solid black",
-//     fontSize: 30,
-//     textAlign: "center"
-//   },
-//   containerTall: {
-//     minHeight: 250 // This div has higher minimum height
-//   }
-// });
 const MachineInput = (props) => {
   const navigate = useNavigate()
 
@@ -72,6 +58,7 @@ const MachineInput = (props) => {
     event.preventDefault()
     // const { machineName, sites, subModule, machineType } = props.machineData
     console.log(props.machineData)
+    console.log()
     // if (!machineName || !sites || !subModule || !machineType || sites == 0 || subModule == 0 || machineType == 0) {
     //   alert('All data required')
     // } else {
