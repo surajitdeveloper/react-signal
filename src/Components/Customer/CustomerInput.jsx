@@ -25,22 +25,19 @@ import { states, updateValue } from '../../Config/signalVariables'
 import Session from '../User/Session'
 // import { Document, Page, Text, View, StyleSheet, PDFViewer } from '@react-pdf/renderer';
 
-
-import { usePDF } from 'react-to-pdf';
+import { usePDF } from 'react-to-pdf'
 const CustomerInput = (props) => {
-  const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+  const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' })
   // const navigate = useNavigate()
   // ReactPDF.renderToStream(<PdfExport />);
   console.log('Customer props --->', props)
 
-
-
   return (
     <>
       <button onClick={() => toPDF()}>Download PDF</button>
-         <div ref={targetRef}>
-            <PdfExport />
-         </div>
+      <div ref={targetRef}>
+        <PdfExport />
+      </div>
     </>
   )
 }
