@@ -109,7 +109,6 @@ export const PdfExport = () => {
   return (
     <>
       <div style={{ display: 'flex' }}>
-        This is pdf
         <div style={{ flex: 1 }}>
           <div className='form-container'>
             <p>
