@@ -55,11 +55,11 @@ const CustomerInput = (props) => {
               margin='normal'
               required
               fullWidth
-              id='customername'
-              label='Customer Name'
-              name='customername'
+              id='company'
+              label='Company Name'
+              name='company'
               autoComplete='email'
-              value={states.value.customername}
+              value={states.value.company}
               disabled
             />
 
@@ -95,3 +95,45 @@ const mapStateToProps = (state, props) => {
 const mapActionsToProps = {}
 
 export default connect(mapStateToProps, mapActionsToProps)(CustomerInput)
+
+
+export const pdfExport = () => {
+  return (
+  <>  
+  <div style="display: flex;">
+      <div style="flex: 1;">
+<div class="form-container">
+<p> <u>1. Customer Information </u></p>
+<div class="form-row">
+
+<div class="form-column">
+  <label for="textField1">Company:</label>
+  <input type="text" id="textField1" name="textField1" placeholder="Enter Company Name" />
+</div>
+<div class="form-column">
+  <label for="textField2">Contact Type:</label>
+  <input type="email" id="textField2" name="textField2" placeholder="Enter email here" />
+</div> 
+</div>  
+<div class="form-row">
+<div class="form-column">
+  <label for="textField1">Contact Name:</label>
+  <input type="text" id="textField1" name="textField1" placeholder="Enter text here" />
+</div>
+<div class="form-column">
+  <label for="textField2">Delivery Date:</label>
+  <input type="date" id="textField2" name="textField2" placeholder="Enter text here" />
+</div> 
+</div> 
+</div>
+  <button type="submit">pdf download</button><br /><br />
+
+
+
+
+  <button type="submit">pdf mail</button>
+
+</div>
+</>
+)
+}
