@@ -69,8 +69,7 @@ const MachineInput = (props) => {
   return (
     <>
       
-        <Grid container direction="row"
-          component='form' onSubmit={handleSubmit} noValidate 
+        <Grid container direction="row" 
         >
           <Session />
         <CssBaseline />
@@ -270,7 +269,7 @@ const MachineInput = (props) => {
             
           </Grid>
         </Grid>
-        <Container maxWidth='xs'>
+        <Container component='form' onSubmit={handleSubmit} noValidate maxWidth='xs'>
         <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
               Submit
             </Button>
