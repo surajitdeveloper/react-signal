@@ -10,3 +10,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+
+.MuiGrid-container, .MuiGrid-grid-xs-true{
+  padding: 1% !important;
+} 

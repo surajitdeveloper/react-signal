@@ -12,6 +12,10 @@ import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 
 import Box from '@mui/material/Box'
+
+import { makeStyles } from "@material-ui/core/styles";
+
+import Grid from "@material-ui/core/Grid";
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 
@@ -26,8 +30,11 @@ import '@fontsource/roboto/700.css'
 import { states, updateValue } from '../../Config/signalVariables'
 import Session from '../User/Session'
 
+
 const MachineInput = (props) => {
   const navigate = useNavigate()
+
+  // const classes = useStyles();
 
   React.useEffect(() => {
     const initMachineData = {
@@ -51,6 +58,7 @@ const MachineInput = (props) => {
     event.preventDefault()
     // const { machineName, sites, subModule, machineType } = props.machineData
     console.log(props.machineData)
+    console.log()
     // if (!machineName || !sites || !subModule || !machineType || sites == 0 || subModule == 0 || machineType == 0) {
     //   alert('All data required')
     // } else {
@@ -60,36 +68,15 @@ const MachineInput = (props) => {
 
   return (
     <>
-      <Container component='main' maxWidth='xs'>
-        <Session />
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'left'
-          }}
+      
+        <Grid container direction="row" 
         >
+          <Session />
+        <CssBaseline />
+          <Grid item xs>
           <Typography component='h1' variant='h5'>
             Customer Details
           </Typography>
-          {/* <Typography component='h1' variant='h5'>
-            Machine Details
-          </Typography>
-          <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin='normal'
-              required
-              fullWidth
-              id='machinename'
-              label='Machine Name'
-              name='machineName'
-              autoComplete='email'
-              value={props.machineData.machineName}
-              onInput={(e) => setMachineData('machineName', e.target.value)}
-              autoFocus
-            /> */}
             <TextField
               margin='normal'
               required
@@ -128,10 +115,13 @@ const MachineInput = (props) => {
               name='customername'
               onInput={(e) => updateValue('customername', e.target.value)}
             />
+            </Grid>
+            <Grid item xs
+        >
             <Typography component='h1' variant='h5'>
             Machine Details
           </Typography>
-          <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          
             <TextField
               margin='normal'
               required
@@ -206,6 +196,9 @@ const MachineInput = (props) => {
                 )
               })}
             </Select>
+            </Grid>
+            <Grid item xs
+        >
             <Typography component='h1' variant='h5'>
             Frame Details
           </Typography>
@@ -273,11 +266,13 @@ const MachineInput = (props) => {
               name='Ismachinefullyoperational'
               onInput={(e) => updateValue('Ismachinefullyoperational', e.target.value)}
             />
-            <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
+            
+          </Grid>
+        </Grid>
+        <Container component='form' onSubmit={handleSubmit} noValidate maxWidth='xs'>
+        <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
               Submit
             </Button>
-          </Box>
-        </Box>
       </Container>
     </>
   )
