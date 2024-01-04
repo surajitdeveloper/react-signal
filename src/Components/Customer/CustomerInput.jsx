@@ -3,8 +3,6 @@ import * as React from 'react'
 
 import { connect } from 'react-redux'
 
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
-import ReactPDF from '@react-pdf/renderer'
 // import { useNavigate } from 'react-router-dom'
 
 import Button from '@mui/material/Button'
@@ -25,10 +23,14 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import { states, updateValue } from '../../Config/signalVariables'
 import Session from '../User/Session'
+// import { Document, Page, Text, View, StyleSheet, PDFViewer } from '@react-pdf/renderer';
 
+
+import { usePDF } from 'react-to-pdf';
 const CustomerInput = (props) => {
+  const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
   // const navigate = useNavigate()
-
+  // ReactPDF.renderToStream(<PdfExport />);
   console.log('Customer props --->', props)
 
   const handleSubmit = async (event) => {
@@ -41,7 +43,7 @@ const CustomerInput = (props) => {
       <Container component='main' maxWidth='xs'>
         <Session />
         <CssBaseline />
-        <Box
+        {/* <Box
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -81,11 +83,13 @@ const CustomerInput = (props) => {
               Submit
             </Button>
           </Box>
-        </Box>
-        ReactPDF.renderToStream(
-        <PdfExport />
-        );
+        </Box> */}
+        
       </Container>
+      <button onClick={() => toPDF()}>Download PDF</button>
+         <div ref={targetRef}>
+            <PdfExport />
+         </div>
     </>
   )
 }
@@ -105,6 +109,7 @@ export const PdfExport = () => {
   return (
     <>
       <div style={{ display: 'flex' }}>
+        This is pdf
         <div style={{ flex: 1 }}>
           <div className='form-container'>
             <p>
