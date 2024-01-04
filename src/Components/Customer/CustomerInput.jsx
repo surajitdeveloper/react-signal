@@ -3,6 +3,8 @@ import * as React from 'react'
 
 import { connect } from 'react-redux'
 
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
+import ReactPDF from '@react-pdf/renderer'
 // import { useNavigate } from 'react-router-dom'
 
 import Button from '@mui/material/Button'
@@ -63,7 +65,7 @@ const CustomerInput = (props) => {
               disabled
             />
 
-<TextField
+            <TextField
               margin='normal'
               required
               fullWidth
@@ -80,6 +82,9 @@ const CustomerInput = (props) => {
             </Button>
           </Box>
         </Box>
+        ReactPDF.renderToStream(
+        <PdfExport />
+        );
       </Container>
     </>
   )
@@ -96,44 +101,44 @@ const mapActionsToProps = {}
 
 export default connect(mapStateToProps, mapActionsToProps)(CustomerInput)
 
-
-export const pdfExport = () => {
+export const PdfExport = () => {
   return (
-  <>  
-  <div style="display: flex;">
-      <div style="flex: 1;">
-<div class="form-container">
-<p> <u>1. Customer Information </u></p>
-<div class="form-row">
+    <>
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1 }}>
+          <div className='form-container'>
+            <p>
+              {' '}
+              <u>1. Customer Information </u>
+            </p>
+            <div className='form-row'>
+              <div className='form-column'>
+                <label>Company:</label>
+                <input type='text' id='textField1' name='textField1' placeholder='Enter Company Name' />
+              </div>
+              <div className='form-column'>
+                <label>Contact Type:</label>
+                <input type='email' id='textField2' name='textField2' placeholder='Enter email here' />
+              </div>
+            </div>
+            <div className='form-row'>
+              <div className='form-column'>
+                <label>Contact Name:</label>
+                <input type='text' id='textField1' name='textField1' placeholder='Enter text here' />
+              </div>
+              <div className='form-column'>
+                <label>Delivery Date:</label>
+                <input type='date' id='textField2' name='textField2' placeholder='Enter text here' />
+              </div>
+            </div>
+          </div>
+          <button type='submit'>pdf download</button>
+          <br />
+          <br />
 
-<div class="form-column">
-  <label for="textField1">Company:</label>
-  <input type="text" id="textField1" name="textField1" placeholder="Enter Company Name" />
-</div>
-<div class="form-column">
-  <label for="textField2">Contact Type:</label>
-  <input type="email" id="textField2" name="textField2" placeholder="Enter email here" />
-</div> 
-</div>  
-<div class="form-row">
-<div class="form-column">
-  <label for="textField1">Contact Name:</label>
-  <input type="text" id="textField1" name="textField1" placeholder="Enter text here" />
-</div>
-<div class="form-column">
-  <label for="textField2">Delivery Date:</label>
-  <input type="date" id="textField2" name="textField2" placeholder="Enter text here" />
-</div> 
-</div> 
-</div>
-  <button type="submit">pdf download</button><br /><br />
-
-
-
-
-  <button type="submit">pdf mail</button>
-
-</div>
-</>
-)
+          <button type='submit'>pdf mail</button>
+        </div>
+      </div>
+    </>
+  )
 }
