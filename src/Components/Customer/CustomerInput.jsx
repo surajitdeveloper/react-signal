@@ -84,11 +84,6 @@ export const PdfExport = () => {
               </div>
             </div>
           </div>
-          <button type='submit'>pdf download</button>
-          <br />
-          <br />
-
-          <button type='submit'>pdf mail</button>
         </div>
       </div>
     </>
