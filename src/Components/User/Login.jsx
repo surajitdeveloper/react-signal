@@ -20,6 +20,22 @@ import { LOGIN_API, API_CALL } from '../../Config/constant'
 import { withErrorBoundary, useErrorBoundary } from 'react-use-error-boundary'
 
 const Login = withErrorBoundary((props) => {
+  const [loginBtnText, setLoginBtnText] = React.useState('Login')
+  const [logindisable, setLogindisable] = React.useState(false)
+  const navigate = useNavigate()
+  const api = API_CALL.find((e) => e.NAME === LOGIN_API)
+  const redirect = (navigate) => {
+    // if (props.token || API_CALL.find((e) => e.NAME === LOGIN_API).DATA.token) {
+    updateValue('username', '')
+    updateValue('password', '')
+    navigate('/machine') // redirect
+  }
+
+  React.useEffect(() => {
+    console.log("effect --->",props)
+    console.log("effect --->",api)
+    if (props.token) redirect(navigate)
+  }, [props.token])
   const [error, resetError] = useErrorBoundary(
     // You can optionally log the error to an error reporting service
     (error, errorInfo) => {
@@ -27,7 +43,6 @@ const Login = withErrorBoundary((props) => {
       console.log(errorInfo)
     }
   )
-  const navigate = useNavigate()
   const [showError, setShowError] = React.useState(false)
   // states.value.errorMessage.find((e) => e.name == LOGIN_API).status === API_STATUS.FAILED ||
   const doLogin = async (e) => {
@@ -37,19 +52,15 @@ const Login = withErrorBoundary((props) => {
 
     try {
       const { username, password } = states.value
-
-      await props.doLogin({ username, password }) // api call
+      setLoginBtnText('loading...')
+      setLogindisable(true)
+      await props.doLogin({ username, password }) // login api call
 
       // console.log('props --->', props)
-      // console.log("API DATA --->", API_CALL.find((e) => e.NAME === LOGIN_API))
-
-      if (props.token || API_CALL.find((e) => e.NAME === LOGIN_API).DATA.token) {
-        updateValue('username', '')
-        updateValue('password', '')
-        navigate('/machine') // redirect
-      } else {
-        setShowError(true)
-      }
+      console.log("API DATA --->", api)
+      setLoginBtnText('Login')
+      setLogindisable(false)
+      if (api.DATA.error) setShowError(true)
     } catch (err) {
       console.log(err)
       console.log(error)
@@ -104,17 +115,17 @@ const Login = withErrorBoundary((props) => {
               type='password'
             />
 
-            {showError ? (
+            {showError && api.DATA.error ? (
               <Alert severity='error'>
-                <AlertTitle>Error - {API_CALL.find((e) => e.NAME === LOGIN_API).DATA.code}</AlertTitle>
-                {API_CALL.find((e) => e.NAME === LOGIN_API).DATA.message}
+                <AlertTitle>Error - {api.DATA.error.code}</AlertTitle>
+                {api.DATA.error.message}
               </Alert>
             ) : (
               ''
             )}
 
-            <Button type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
-              Login
+            <Button disabled={logindisable} type='submit' fullWidth variant='contained' sx={{ mt: 3, mb: 2 }}>
+              {loginBtnText}
             </Button>
             <Grid container>
               <Grid item xs>

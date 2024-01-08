@@ -11,6 +11,8 @@ export const apiCallAction = async (dispatch, apiName, data = {}) => {
 
   // console.log(apiDetails)
 
+  apiDetails.DATA = {}
+
   try {
     const response = await api(apiDetails)
     apiDetails.DATA = { ...response }
@@ -19,9 +21,9 @@ export const apiCallAction = async (dispatch, apiName, data = {}) => {
       payload: { ...response }
     })
   } catch (error) {
-    // console.log(error)
-    apiDetails.DATA = { code: error.code, message: error.response.data.message }
-    // console.log(apiDetails)
+    console.log(error)
+    apiDetails.DATA['error'] = { code: error.code, message: error.response.data.message }
+    console.log(apiDetails)
     dispatch({
       type: apiDetails.AFTER_ACTION,
       payload: { ...apiDetails.EMPTY_DATA }
