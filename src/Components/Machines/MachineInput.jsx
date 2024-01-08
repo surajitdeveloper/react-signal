@@ -45,7 +45,7 @@ const MachineInput = (props) => {
     props.updateMachineData(initMachineData)
   }, [states.value, props.updateMachineData])
 
-  // console.log('component props --->', props)
+  console.log('component props --->', props)
 
   const setMachineData = (type, val) => {
     const machineData = { ...props.machineData, [type]: val }

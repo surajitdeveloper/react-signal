@@ -41,8 +41,9 @@ const Login = withErrorBoundary((props) => {
       await props.doLogin({ username, password }) // api call
 
       // console.log('props --->', props)
+      // console.log("API DATA --->", API_CALL.find((e) => e.NAME === LOGIN_API))
 
-      if (props.token) {
+      if (props.token || API_CALL.find((e) => e.NAME === LOGIN_API).DATA.token) {
         updateValue('username', '')
         updateValue('password', '')
         navigate('/machine') // redirect
