@@ -11,9 +11,9 @@ import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 
-import Box from '@mui/material/Box'
+// import Box from '@mui/material/Box'
 
-import { makeStyles } from '@material-ui/core/styles'
+// import { makeStyles } from '@material-ui/core/styles'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@mui/material/Typography'
@@ -57,7 +57,7 @@ const MachineInput = (props) => {
     event.preventDefault()
     // const { machineName, sites, subModule, machineType } = props.machineData
     console.log(props.machineData)
-    console.log()
+    // console.log()
     // if (!machineName || !sites || !subModule || !machineType || sites == 0 || subModule == 0 || machineType == 0) {
     //   alert('All data required')
     // } else {
