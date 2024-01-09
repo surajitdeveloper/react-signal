@@ -57,7 +57,7 @@ const Login = withErrorBoundary((props) => {
       await props.doLogin({ username, password }) // login api call
 
       // console.log('props --->', props)
-      console.log("API DATA --->", api)
+      console.log('API DATA --->', api)
       setLoginBtnText('Login')
       setLogindisable(false)
       if (api.DATA.error) setShowError(true)
