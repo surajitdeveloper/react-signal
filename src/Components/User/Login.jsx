@@ -32,8 +32,8 @@ const Login = withErrorBoundary((props) => {
   }
 
   React.useEffect(() => {
-    console.log("effect --->",props)
-    console.log("effect --->",api)
+    // console.log("effect --->",props)
+    // console.log("effect --->",api)
     if (props.token) redirect(navigate)
   }, [props.token])
   const [error, resetError] = useErrorBoundary(
